@@ -196,6 +196,16 @@
 		<version>1.20.0</version>
 	</dependency>
      <!-- Módulos da Api Google Auth - end -->
+     
+   
+	
+	<dependency>
+	<groupId>org.postgresql</groupId>
+	<artifactId>postgresql</artifactId>
+	<version>9.4.1207.jre7</version>
+</dependency>
+	
+     
     
   </dependencies>
   <build>
