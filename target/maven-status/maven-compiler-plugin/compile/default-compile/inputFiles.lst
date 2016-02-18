@@ -1,0 +1,16 @@
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/models/IsmartCourse.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismartonline/lab/Runner.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/conf/JPAConfiguration.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/conf/SpringSecurityFilterConfiguration.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/controllers/ModuloController.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/models/Role.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/models/User.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/services/GoogleClassroomClient.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/conf/SecurityConfiguration.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/controllers/UserController.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/controllers/HomeController.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/daos/PaginatorQueryHelper.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/models/PaginatedList.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/conf/SpringMVCServlet.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/daos/UserDetailsServiceDAO.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/conf/AppWebConfiguration.java
