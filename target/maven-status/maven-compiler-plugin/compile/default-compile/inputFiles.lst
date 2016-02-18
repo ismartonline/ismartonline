@@ -14,3 +14,4 @@
 /Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/conf/SpringMVCServlet.java
 /Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/daos/UserDetailsServiceDAO.java
 /Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/conf/AppWebConfiguration.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/conf/JPAProductionConfiguration.java
