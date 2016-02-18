@@ -20,17 +20,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
       
      // EXAMPLE OF AUTHENTICATION AND AUTHORIZATION
       
-      http.authorizeRequests()
-//      .antMatchers("/url1").hasRole("ADMIN")
-    .antMatchers("/cadastro/**").permitAll()
-    
-//      .antMatchers(HttpMethod.POST,"/specificUrl").hasRole("ADMIN")
-//      .antMatchers("/url3/**").permitAll()
-      .anyRequest().authenticated()
-      .and()
-      .formLogin().loginPage("/login"). permitAll()
-      .and()
-      .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+//      http.authorizeRequests()
+////      .antMatchers("/url1").hasRole("ADMIN")
+//    .antMatchers("/cadastro/**").permitAll()
+//    
+////      .antMatchers(HttpMethod.POST,"/specificUrl").hasRole("ADMIN")
+////      .antMatchers("/url3/**").permitAll()
+//      .anyRequest().authenticated()
+//      .and()
+//      .formLogin().loginPage("/login"). permitAll()
+//      .and()
+//      .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
       
    }
 
