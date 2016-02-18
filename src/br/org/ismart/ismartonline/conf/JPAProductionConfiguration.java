@@ -2,6 +2,7 @@ package br.org.ismart.ismartonline.conf;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -33,11 +34,19 @@ public class JPAProductionConfiguration {
 
 	      JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 	      em.setJpaVendorAdapter(vendorAdapter);
+	      em.setJpaProperties(additionalProperties());
 
 	      return em;
 	   }
 
-	   @Bean
+	   private Properties additionalProperties() {
+		   Properties properties = new Properties();
+		      properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		      properties.setProperty("hibernate.show_sql", "true");
+		      return properties;
+	}
+
+	@Bean
 	   public DataSource dataSource(Environment environment) throws URISyntaxException
 	   {
 	      DriverManagerDataSource dataSource = new DriverManagerDataSource();
