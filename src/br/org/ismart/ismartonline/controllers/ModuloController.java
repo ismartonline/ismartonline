@@ -37,6 +37,14 @@ public class ModuloController {
 		return model;
 	}
 	
+	@RequestMapping("/cultura/{missao}")
+	public ModelAndView missao(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao");
+		
+		System.out.println(missao);
+		return model;
+	}
+	
 	@RequestMapping("/materias")
 	public String materias(){
 		return "modulo/materias";

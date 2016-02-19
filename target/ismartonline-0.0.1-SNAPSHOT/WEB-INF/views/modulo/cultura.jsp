@@ -28,7 +28,7 @@
 	rel="stylesheet">
 
  <!-- Custom CSS -->
-<link href="${pageContext.request.contextPath}/resources/css/landing-page.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/landing-page-cultura.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
 <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -90,17 +90,7 @@
 			<h5>Aqui você vai aprender sobre a cultura e como ela vai te ajudar a Sonhar Grande e realizar cada vez mais!!</h5>
 		</div>
 		<div class="row">
-			<div class="col-sm-3">
-				<div class="title">
-					<h3>Menu</h3>
-				</div>
-				<!-- menu de categorias -->
-				<div class="list-group ">
-					<a href="#" class="list-group-item ">Missões</a>
-					<a href="#" class="list-group-item ">Colegas de Classe</a>
-					<a href="#" class="list-group-item ">Sobre o Módulo</a>
-				</div>
-			</div>
+			
 			<!-- bloco conteudo -->
 			<div class="col-sm-9">
 				<!-- novidades -->
@@ -112,60 +102,22 @@
 				<div class="row">
 					<div class="col-sm-4 text-center wow fadeInUp" data-wow-delay=".2s">
 						<div class="thumbnail">
-							<figure>
-								<a href="https://vimeopro.com/user25854406/modulo-de-cultura-8-ano/video/124248088">
-									<img src="${pageContext.request.contextPath}/resources/img/nova-vida.jpg" class="img-responsive center-block" >
-								</a>
-							</figure>
+							
 							<div class="caption">
 								<h4>Nova Vida - Outubro 2015</h4>
 								<p>Missão 8</p>
 								<div class="btn-group">
-									<a href="#" class="btn btn-primary">
-										Ver Discussão
+									<a href="<c:url value='/cultura/missao-8'/>" class="btn btn-primary">
+										Ir para Missão
 									</a>
 								</div>
 							</div>
 						</div>
 						</div>
 					<!-- e um produto -->
-					<div class="col-sm-4 text-center wow fadeInUp" data-wow-delay=".2s">
-						<div class="thumbnail">
-							<figure>
-								<a href="https://vimeopro.com/user25854406/modulo-de-cultura-8-ano/video/124248088">
-									<img src="${pageContext.request.contextPath}/resources/img/napoleao.jpg" class="img-responsive center-block" >
-								</a>
-							</figure>
-							<div class="caption">
-								<h4>Nova Vida - Outubro 2015</h4>
-								<p>Napoleão</p>
-								<div class="btn-group">
-									<a href="#" class="btn btn-primary">
-										Ver Discussão
-									</a>
-								</div>
-							</div>
-						</div>
-					</div><!-- fim de um produto -->
 					
-					<div class="col-sm-4 text-center wow fadeInUp" data-wow-delay=".2s">
-						<div class="thumbnail">
-							<figure>
-								<a href="https://vimeopro.com/user25854406/modulo-de-cultura-8-ano/video/124248088">
-									<img src="${pageContext.request.contextPath}/resources/img/depoimento-bolsista-1.jpg" class="img-responsive center-block" >
-								</a>
-							</figure>
-							<div class="caption">
-								<h4>Nova Vida - Outubro 2015</h4>
-								<p>Depoimento de Bolsista Ismart</p>
-								<div class="btn-group">
-									<a href="#" class="btn btn-primary">
-										Ver Discussão
-									</a>
-								</div>
-							</div>
-						</div>
-					</div><!-- fim de um produto -->
+					
+				
 					
 				</div><!-- fim dos mais vendidos -->
 			</div><!-- fim do bloco conteudo -->
