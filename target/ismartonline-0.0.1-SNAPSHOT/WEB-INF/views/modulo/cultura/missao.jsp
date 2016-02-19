@@ -28,7 +28,7 @@
 	rel="stylesheet">
 
  <!-- Custom CSS -->
-<link href="${pageContext.request.contextPath}/resources/css/landing-page-cultura.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/landing-page.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
 <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -90,37 +90,69 @@
 			<h5>Aqui você vai aprender sobre a cultura e como ela vai te ajudar a Sonhar Grande e realizar cada vez mais!!</h5>
 		</div>
 		<div class="row">
+			<div class="col-sm-3">
+				<div class="row" id="video">
+					<div class="title">
+						<h3>Vídeos</h3>
+					</div>
+					<!-- menu de categorias -->
+					<div class="list-group ">
+						<a href="#" class="list-group-item ">Vídeo 1</a>
+						<a href="#" class="list-group-item ">Vídeo 2</a>
+						<a href="#" class="list-group-item ">Vídeo 3</a>
+					</div>
+				</div>
+				<div class="row" id="acoes">
+						<div class="title">
+							<h3>Ações</h3>
+						</div>
+						<!-- menu de categorias -->
+						<div class="list-group ">
+							<a href="#" class="list-group-item ">Entrega</a>
+							<a href="#" class="list-group-item ">Resultado</a>
+							<a href="#" class="list-group-item ">Fórum</a>
+						</div>
+				</div>
+			</div>
 			
 			<!-- bloco conteudo -->
 			<div class="col-sm-9">
 				<!-- novidades -->
 				<div class="row" id="novidades">
 					<div class="col-sm-12 text-center">
-						<h3></h3>
+						<h3>Missão 8</h3>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-sm-4 text-center wow fadeInUp" data-wow-delay=".2s">
+				
+				<div class="row" >
+					<div class="col-sm-9 text-center wow fadeInUp content-center" data-wow-delay=".2s" >
 						<div class="thumbnail">
-							
+							<figure>
+								<a href="https://vimeopro.com/user25854406/modulo-de-cultura-8-ano/video/124248088">
+									<img src="${pageContext.request.contextPath}/resources/img/nova-vida.jpg" class="img-responsive center-block" >
+								</a>
+							</figure>
 							<div class="caption">
 								<h4>Nova Vida - Outubro 2015</h4>
 								<p>Missão 8</p>
 								<div class="btn-group">
-									<a href="<c:url value='/cultura/missao-8'/>" class="btn btn-primary">
-										Ir para Missão
+									<a href="#" class="btn btn-primary">
+										<< Anterior
+									</a>
+									&nbsp;
+									<a href="#" class="btn btn-primary">
+										Próximo >>
 									</a>
 								</div>
 							</div>
 						</div>
-						</div>
+				</div>
 					<!-- e um produto -->
 					
 					
-				
-					
 				</div><!-- fim dos mais vendidos -->
 			</div><!-- fim do bloco conteudo -->
+			
 		</div> <!-- fim da linha principal -->
 
 	</div> <!-- fim container fluid -->
