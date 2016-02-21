@@ -93,7 +93,7 @@
 			<div class="col-sm-3">
 				<div class="row" id="video">
 					<div class="title">
-						<h3>Vídeos</h3>
+						<h3></h3>
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">

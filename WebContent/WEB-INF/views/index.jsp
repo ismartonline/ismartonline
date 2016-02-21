@@ -30,6 +30,8 @@
  <!-- Custom CSS -->
 <link href="${pageContext.request.contextPath}/resources/css/landing-page.css" rel="stylesheet">
 
+<link href="${pageContext.request.contextPath}/resources/css/menu-bar.css" rel="stylesheet">
+
 <!-- Custom Fonts -->
 <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -55,19 +57,31 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="#" >Ismart | Ismart Online</a>
+                <a class="navbar-brand header-line topnav" href="http://www.ismart.org.br" target="_blank" >Ismart</a> 
+                <a class="navbar-brand header-line topnav"  href="#">|</a>
+                <a class="navbar-brand header-line topnav" href="<c:url value='/home'/>" >Ismart Online</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#about">Sobre</a>
+                <ul class="nav navbar-nav navbar-right navbar-nav-header">
+                     <li>
+                        <a href="<c:url value='/home'/>">Home</a>
                     </li>
                     <li>
-                        <a href="#about">FAQ</a>
+                        <a href="<c:url value='/sobre'/>">Sobre</a>
                     </li>
                     <li>
-                        <a href="#contact">Contato</a>
+                        <a href="<c:url value='/faq'/>">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="<c:url value='/contato'/>">Contato</a>
+                    </li>
+                    <li>
+                        <figure>
+	                        <a href="<c:url value='/home'/>">
+	                        	<img src="${pageContext.request.contextPath}/resources/img/ismart-online-logo-2.jpg">
+	                       	</a>
+                       	</figure>
                     </li>
                 </ul>
             </div>
@@ -123,19 +137,19 @@
                 <div class="col-lg-12">
                     <ul class="list-inline">
                         <li>
-                            <a href="#">Home</a>
+	                        <a href="<c:url value='/home'/>">Home</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#about">Sobre</a>
+	                        <a href="<c:url value='/sobre'/>">Sobre</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#services">FAQ</a>
+	                        <a href="<c:url value='/faq'/>">FAQ</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#contact">Contato</a>
+	                        <a href="<c:url value='/contato'/>">Contato</a>
                         </li>
                     </ul>
                     <p class="copyright text-muted small">Copyright &copy; Ismart Online 2016. Todos os direitos reservados.</p>

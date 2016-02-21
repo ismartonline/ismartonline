@@ -52,19 +52,19 @@
 			<input type="password" id="inputPassword" name="password"
 				class="form-control" placeholder="Senha cadastrada" required>
 				
+				
+			<%--  Desabilitado - Passo 2!!!! 
 			<div class="checkbox">
 				<label> <input type="checkbox" value="remember-me">
 					Lembrar email e senha
 				</label>
 			</div>
+			--%>
+			
 			
 			<input class="btn btn-lg btn-primary btn-block" name="submit"
 				type="submit" value="Entrar">
-			<%--	
-			<h4 class="form-signin-heading">Ainda não tem Login?</h4>
-			
-			<a href="${pageContext.request.contextPath}/cadastro" class="btn btn-lg btn-success btn-block" name="submitNovo">Cadastre-se aqui</a>
-			 --%>
+				
 		</form:form>
 		
 
