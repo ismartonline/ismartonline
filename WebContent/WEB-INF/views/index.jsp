@@ -8,12 +8,11 @@
 
 	<c:import url="include/head.jsp" />
 	
-	<!-- Custom CSS -->
-		<link href="${pageContext.request.contextPath}/resources/css/landing-page.css" rel="stylesheet">
-	
 	<body>
 		
 		<c:import url="include/navigation.jsp" />
+		
+	
 	    <!-- Header -->
 	    <div class="intro-header">
 	        <div class="container">

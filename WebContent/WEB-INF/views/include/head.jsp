@@ -22,6 +22,9 @@
 		href="${pageContext.request.contextPath}/resources/assets/css/ie10-viewport-bug-workaround.css"
 		rel="stylesheet">
 	
+	<!-- Custom CSS -->
+	<link href="${pageContext.request.contextPath}/resources/css/landing-page.css" rel="stylesheet">	
+	
 	<link href="${pageContext.request.contextPath}/resources/css/menu-bar.css" rel="stylesheet">
 	
 	<!-- Custom Fonts -->
