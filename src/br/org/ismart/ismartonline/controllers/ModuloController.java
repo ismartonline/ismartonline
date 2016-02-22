@@ -37,9 +37,49 @@ public class ModuloController {
 		return model;
 	}
 	
-	@RequestMapping("/cultura/{missao}")
-	public ModelAndView missao(String missao){
-		ModelAndView model = new ModelAndView("modulo/cultura/missao");
+	@RequestMapping("/cultura/missao/ano-8")
+	public ModelAndView missao8(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-8");
+		
+		System.out.println(missao);
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao/ano-8/video-2")
+	public ModelAndView missao8Video2(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-8-video2");
+		
+		System.out.println(missao);
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao/ano-8/video-3")
+	public ModelAndView missao8Video3(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-8-video3");
+		
+		System.out.println(missao);
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao/ano-9")
+	public ModelAndView missao9(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-9");
+		
+		System.out.println(missao);
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao/ano-1")
+	public ModelAndView missao1(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-1");
+		
+		System.out.println(missao);
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao/ano-1/video-2")
+	public ModelAndView missao1Video2(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-1-video2");
 		
 		System.out.println(missao);
 		return model;

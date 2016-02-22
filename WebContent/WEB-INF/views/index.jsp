@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
 <html lang="pt-BR">
 
@@ -25,7 +26,7 @@
 	                        <hr class="intro-divider">
 	                        <ul class="list-inline intro-social-buttons">
 	                            <li>
-	                                <a href="<c:url value='/cultura'/>" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Cultura</span></a>
+	                                <a href="<c:url value='/cultura/'/>" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Cultura</span></a>
 	                            </li>
 	                           
 	                            <li>

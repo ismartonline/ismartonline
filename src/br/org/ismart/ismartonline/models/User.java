@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -18,9 +19,19 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class User implements UserDetails {
 
 	@Id
-	String login;
-	String password;
-	String name;
+	private String login;
+	private String password;
+	private String name;
+	
+	private String ano;
+	private String turma;
+	private String turno;
+	private String unidade;
+	private String ismartId;
+	private String geekieId;
+	
+	//@OneToMany(fetch = FetchType.EAGER)
+	//private List<Mission> missions;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Role> roles = new ArrayList<>();
@@ -64,6 +75,47 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
+
+
+	public String getLogin() {
+		return login;
+	}
+
+
+	public String getAno() {
+		return ano;
+	}
+
+
+	public String getTurma() {
+		return turma;
+	}
+
+
+	public String getTurno() {
+		return turno;
+	}
+
+
+	public String getUnidade() {
+		return unidade;
+	}
+
+
+	public String getIsmartId() {
+		return ismartId;
+	}
+
+
+	public String getGeekieId() {
+		return geekieId;
+	}
+
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+	
 	
 	
 

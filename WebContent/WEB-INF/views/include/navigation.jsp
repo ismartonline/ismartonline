@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
@@ -14,6 +15,15 @@
             <a class="navbar-brand header-line topnav" href="http://www.ismart.org.br" target="_blank" >Ismart</a> 
             <a class="navbar-brand header-line topnav"  href="#">|</a>
             <a class="navbar-brand header-line topnav" href="<c:url value='/home'/>" >Ismart Online</a>
+            <a class="navbar-brand header-line topnav"  href="#">|</a>
+            
+            <sec:authorize access="isAuthenticated()">
+            	<sec:authentication property="principal" var="user"/>
+            	<a class="navbar-brand header-line topnav" href="<c:url value='/aluno'/>" >${user.name} - ${user.ano} Ano</a>
+            </sec:authorize>
+            
+            <a class="navbar-brand header-line topnav"  href="#">|</a>
+            <a class="navbar-brand header-line topnav" href="<c:url value='/logout'/>" >Sair</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

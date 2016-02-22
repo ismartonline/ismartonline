@@ -6,15 +6,19 @@
 
 <html lang="pt-BR">
 
-	<c:import url="../../include/head-cultura.jsp" />
+	<c:import url="../../../include/head-cultura.jsp" />
 
 	<body>
 
-	   <c:import url="../../include/navigation.jsp" />  
+	   <c:import url="../../../include/navigation.jsp" />  
 		
 		<!-- Conteudo da pagina vai aqui! -->
 		
 		<div class="container-fluid intro-header">
+		
+		<div class="title">
+				<h5>Módulo de Cultura</h5>
+			</div>
 		
 			<div class="title">
 				<h3>Módulo de Cultura</h3>
@@ -30,9 +34,9 @@
 						</div>
 						<!-- menu de categorias -->
 						<div class="list-group ">
-							<a href="#" class="list-group-item ">Vídeo 1</a>
-							<a href="#" class="list-group-item ">Vídeo 2</a>
-							<a href="#" class="list-group-item ">Vídeo 3</a>
+							<a href="<c:url value='/cultura/missao/ano-8' />" class="list-group-item ">Chamado - O sonho de Ismar</a>
+							<a href="<c:url value='/cultura/missao/ano-8/video-2' />" class="list-group-item ">Chamado - depoimento bolsista do ismart</a>
+							<a href="<c:url value='/cultura/missao/ano-8/video-3' />" class="list-group-item ">Chamado - Faça acontecer</a>
 						</div>
 					</div>
 					<div class="row" id="acoes">
@@ -53,29 +57,28 @@
 					<!-- novidades -->
 					<div class="row" id="novidades">
 						<div class="col-sm-12 text-center">
-							<h3>Missão 8</h3>
+							<h3>Missão 1</h3>
 						</div>
 					</div>
 					
 					<div class="row" >
 						<div class="col-sm-9 text-center wow fadeInUp content-center" data-wow-delay=".2s" >
 							<div class="thumbnail">
-								<figure>
-									<a href="https://vimeopro.com/user25854406/modulo-de-cultura-8-ano/video/124248088">
-										<img src="${pageContext.request.contextPath}/resources/img/nova-vida.jpg" class="img-responsive center-block" >
-									</a>
-								</figure>
+								<iframe src="https://player.vimeo.com/video/90763685" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 								<div class="caption">
-									<h4>Nova Vida - Outubro 2015</h4>
-									<p>Missão 8</p>
+									<h4>Chamado - O sonho de Ismar</h4>
+									<p>Missão 1</p>
 									<div class="btn-group">
-										<a href="#" class="btn btn-primary">
-											<< Anterior
-										</a>
-										&nbsp;
-										<a href="#" class="btn btn-primary">
+										
+										<a href="<c:url value='/cultura/missao/ano-8/video-2' />" class="btn btn-primary">
 											Próximo >>
 										</a>
+									</div>
+									<div class="btn-group">
+										<a href="${pageContext.request.contextPath}/resources/doc/missao1_8.docx" class="btn btn-primary">
+											Instruções
+										</a>
+										
 									</div>
 								</div>
 							</div>
@@ -93,7 +96,7 @@
 		<!-- Fim do espaço para o conteudo da página -->
 	
 	
-	   <c:import url="../../include/footer.jsp" />  
+	   <c:import url="../../../include/footer.jsp" />  
 	
 	</body>
 
