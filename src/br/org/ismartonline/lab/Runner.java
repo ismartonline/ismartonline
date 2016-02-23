@@ -32,69 +32,69 @@ public class Runner {
 	
 	
 	public static void main(String[] args) throws IOException, SQLException {
-		BCryptPasswordEncoder crypt = new BCryptPasswordEncoder();
-		
-//		System.out.println(crypt.encode("ismart2016"));
-		
-		
-//		Path caminho = Paths.get("/Users/juliocvidal/Documents/jv-tech/ismart/dados-alunos/Planilha-Cadastro-Geekie-2016.xlsx");
+//		BCryptPasswordEncoder crypt = new BCryptPasswordEncoder();
+//		
+////		System.out.println(crypt.encode("ismart2016"));
+//		
+//		
+////		Path caminho = Paths.get("/Users/juliocvidal/Documents/jv-tech/ismart/dados-alunos/Planilha-Cadastro-Geekie-2016.xlsx");
+////		Stream<String> linhas = Files.lines(caminho);
+//
+//		Path caminho = Paths.get(System.getProperty("user.home"), "Documents/jv-tech/ismart/dados-alunos/alunos.csv");
 //		Stream<String> linhas = Files.lines(caminho);
-
-		Path caminho = Paths.get(System.getProperty("user.home"), "Documents/jv-tech/ismart/dados-alunos/alunos.csv");
-		Stream<String> linhas = Files.lines(caminho);
-		
-		final Connection dbConnection = getDBConnection();;
-		
-
-		
-		
-		linhas.forEach(linhaBruta -> {
-//			System.out.println(linhaBruta);
-			String[] linha = ((String) linhaBruta).split(",");
-			
-			PreparedStatement preparedStatement = null;
-			
-			try{
-				
-				String insertTableSQL = "INSERT INTO User_iol "
-						+ "(name, ano, turma, turno, unidade, ismartId, login, password) VALUES "
-						+ "('"+linha[0]+"','"+linha[1]+"','"+linha[2]+"','"+linha[3]+"','"+linha[4]+"','"+linha[5]+"','"+linha[6]+"',"
-						+ "'$2a$10$u9D4zHxfupbNrHQ.zXV3n.jPtHQ5W1oG5th5FMMeXVEY20cMsvKCi');";
-				
-				System.out.println(insertTableSQL);
-				
-			} catch (Exception e){
-				e.printStackTrace();
-			}
-			
-			
-
-			
-//			try {
-//				preparedStatement = dbConnection.prepareStatement(insertTableSQL);
+//		
+//		final Connection dbConnection = getDBConnection();;
+//		
+//
+//		
+//		
+//		linhas.forEach(linhaBruta -> {
+////			System.out.println(linhaBruta);
+//			String[] linha = ((String) linhaBruta).split(",");
+//			
+//			PreparedStatement preparedStatement = null;
+//			
+//			try{
 //				
-//				preparedStatement.setString(1, linha[0]);
-//				preparedStatement.setString(2, linha[1]);
-//				preparedStatement.setString(3, linha[2]);
-//				preparedStatement.setString(4, linha[3]);
-//				preparedStatement.setString(5, linha[4]);
-//				preparedStatement.setString(6, linha[5]);
-//				preparedStatement.setString(7, linha[6]);
-//				preparedStatement.setString(8, "$2a$10$u9D4zHxfupbNrHQ.zXV3n.jPtHQ5W1oG5th5FMMeXVEY20cMsvKCi");
+//				String insertTableSQL = "INSERT INTO User_iol "
+//						+ "(name, ano, turma, turno, unidade, ismartId, login, password) VALUES "
+//						+ "('"+linha[0]+"','"+linha[1]+"','"+linha[2]+"','"+linha[3]+"','"+linha[4]+"','"+linha[5]+"','"+linha[6]+"',"
+//						+ "'$2a$10$u9D4zHxfupbNrHQ.zXV3n.jPtHQ5W1oG5th5FMMeXVEY20cMsvKCi');";
 //				
-//				preparedStatement.executeUpdate();
+//				System.out.println(insertTableSQL);
 //				
-//			} catch (Exception e) {
-//				// TODO Auto-generated catch block
+//			} catch (Exception e){
 //				e.printStackTrace();
-//			} 
-			
-			//$2a$10$u9D4zHxfupbNrHQ.zXV3n.jPtHQ5W1oG5th5FMMeXVEY20cMsvKCi
-
-			// execute insert SQL stetement
-
-//			System.out.println("Record is inserted into User_iol table!");
-		});
+//			}
+//			
+//			
+//
+//			
+////			try {
+////				preparedStatement = dbConnection.prepareStatement(insertTableSQL);
+////				
+////				preparedStatement.setString(1, linha[0]);
+////				preparedStatement.setString(2, linha[1]);
+////				preparedStatement.setString(3, linha[2]);
+////				preparedStatement.setString(4, linha[3]);
+////				preparedStatement.setString(5, linha[4]);
+////				preparedStatement.setString(6, linha[5]);
+////				preparedStatement.setString(7, linha[6]);
+////				preparedStatement.setString(8, "$2a$10$u9D4zHxfupbNrHQ.zXV3n.jPtHQ5W1oG5th5FMMeXVEY20cMsvKCi");
+////				
+////				preparedStatement.executeUpdate();
+////				
+////			} catch (Exception e) {
+////				// TODO Auto-generated catch block
+////				e.printStackTrace();
+////			} 
+//			
+//			//$2a$10$u9D4zHxfupbNrHQ.zXV3n.jPtHQ5W1oG5th5FMMeXVEY20cMsvKCi
+//
+//			// execute insert SQL stetement
+//
+////			System.out.println("Record is inserted into User_iol table!");
+//		});
 		
 		
 //		Iterator<String> linhaIt = linhas.iterator();
