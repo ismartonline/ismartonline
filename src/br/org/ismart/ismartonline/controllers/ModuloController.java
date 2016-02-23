@@ -85,19 +85,19 @@ public class ModuloController {
 		return model;
 	}
 	
-	@RequestMapping("/materias")
-	public String materias(){
-		return "modulo/materias";
-	}
-	
-	@RequestMapping("/desempenho")
-	public String desempenho(){
-		return "modulo/desempenho";
-	}
-	
-	@RequestMapping("/interacao")
-	public String interacao(){
-		return "modulo/interacao";
-	}
+//	@RequestMapping("/materias")
+//	public String materias(){
+//		return "modulo/materias";
+//	}
+//	
+//	@RequestMapping("/desempenho")
+//	public String desempenho(){
+//		return "modulo/desempenho";
+//	}
+//	
+//	@RequestMapping("/interacao")
+//	public String interacao(){
+//		return "modulo/interacao";
+//	}
 
 }

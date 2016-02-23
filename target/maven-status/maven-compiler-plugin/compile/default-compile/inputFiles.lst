@@ -13,6 +13,7 @@
 /Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/models/PaginatedList.java
 /Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/conf/SpringMVCServlet.java
 /Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/controllers/MenuBarController.java
+/Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/models/Mission.java
 /Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/daos/UserDetailsServiceDAO.java
 /Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/conf/AppWebConfiguration.java
 /Users/juliocvidal/Workarea/workspaces/ismart/ismartonline/src/br/org/ismart/ismartonline/conf/JPAProductionConfiguration.java

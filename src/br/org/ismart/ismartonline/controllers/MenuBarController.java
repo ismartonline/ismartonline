@@ -11,18 +11,18 @@ public class MenuBarController {
 		return "index";
 	}
 	
-	@RequestMapping("/sobre")
-	public String about(){
-		return "about";
-	}
-	
-	@RequestMapping("/faq")
-	public String faq(){
-		return "faq";
-	}
-	
-	@RequestMapping("/contato")
-	public String contact(){
-		return "contact";
-	}
+//	@RequestMapping("/sobre")
+//	public String about(){
+//		return "about";
+//	}
+//	
+//	@RequestMapping("/faq")
+//	public String faq(){
+//		return "faq";
+//	}
+//	
+//	@RequestMapping("/contato")
+//	public String contact(){
+//		return "contact";
+//	}
 }

@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
 <html lang="pt-BR">
 
@@ -19,7 +20,7 @@
 		<div class="container">
 		
            	<div class="intro-message">
-              	
+           	
 				<div class="title">
 					<h3>Módulo de Cultura</h3>
 				</div>
@@ -42,12 +43,14 @@
 						<div class="row">
 							<div class="col-sm-4 text-center wow fadeInUp" data-wow-delay=".2s">
 								<div class="thumbnail">
+           						<sec:authentication property="principal" var="user"/>
 									
 									<div class="caption">
-										<h4>Nova Vida - Outubro 2015</h4>
-										<p>Missão 8</p>
+									<%--	<h4>Nova Vida - Outubro 2015</h4>   --%>
+										<p>Missão 1</p>
 										<div class="btn-group">
-											<a href="<c:url value='/cultura/missao-8'/>" class="btn btn-primary">
+										
+											<a href="<c:url value='/cultura/missao/ano-${user.ano}'/>" class="btn btn-primary">
 												Ir para Missão
 											</a>
 										</div>
