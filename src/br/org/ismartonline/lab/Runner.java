@@ -15,42 +15,61 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class Runner {
 	
-	private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-	private static final String DB_CONNECTION = "jdbc:mysql://ioldb.c6dlimqsrzhh.sa-east-1.rds.amazonaws.com:3306/ismartonline";
-	private static final String DB_USER = "db_user_root";
-	private static final String DB_PASSWORD = "JPMarce1AndB3t0I4theV1ctory";
+//	private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
+//	private static final String DB_CONNECTION = "jdbc:mysql://ioldb.c6dlimqsrzhh.sa-east-1.rds.amazonaws.com:3306/ismartonline";
+//	private static final String DB_USER = "db_user_root";
+//	private static final String DB_PASSWORD = "JPMarce1AndB3t0I4theV1ctory";
 	
 //	private static final String DB_CONNECTION = "jdbc:mysql://localhost/ismartonline";
 //	private static final String DB_USER = "root";
 //	private static final String DB_PASSWORD = "";
 	
+	private static final String DB_DRIVER = "org.postgresql.Driver";
+
+	private static final String DB_CONNECTION = "jdbc:postgresql://ec2-54-83-205-164.compute-1.amazonaws.com:3306/d5o3nnta4kub3v";
+	private static final String DB_USER = "riyftbkdiioudz";
+	private static final String DB_PASSWORD = "Nt9wov_Emy1w1Xsx1jtKQVjrWN";
+	
+	
 	public static void main(String[] args) throws IOException, SQLException {
-//		BCryptPasswordEncoder crypt = new BCryptPasswordEncoder();
-//		
+		BCryptPasswordEncoder crypt = new BCryptPasswordEncoder();
+		
 //		System.out.println(crypt.encode("ismart2016"));
-//		
-//		File f = new File("/Users/juliocvidal/Documents/jv-tech/ismart/dados-alunos/Planilha-Cadastro-Geekie-2016.xlsx");
-//		
-////		Path caminho = Paths.get("/Users/juliocvidal/Documents/jv-tech/ismart/dados-alunos/Planilha-Cadastro-Geekie-2016.xlsx");
-////		Stream<String> linhas = Files.lines(caminho);
-//
-//		Path caminho = Paths.get(System.getProperty("user.home"), "Documents/jv-tech/ismart/dados-alunos/alunos.csv");
+		
+		
+//		Path caminho = Paths.get("/Users/juliocvidal/Documents/jv-tech/ismart/dados-alunos/Planilha-Cadastro-Geekie-2016.xlsx");
 //		Stream<String> linhas = Files.lines(caminho);
-//		
-//		final Connection dbConnection = getDBConnection();;
-//		
-//
-//		String insertTableSQL = "INSERT INTO User_iol"
-//				+ "(name, ano, turma, turno, unidade, ismartId, login, password) VALUES"
-//				+ "(?,?,?,?,?,?,?,?)";
-//
-//		
-//		linhas.forEach(linhaBruta -> {
+
+		Path caminho = Paths.get(System.getProperty("user.home"), "Documents/jv-tech/ismart/dados-alunos/alunos.csv");
+		Stream<String> linhas = Files.lines(caminho);
+		
+		final Connection dbConnection = getDBConnection();;
+		
+
+		
+		
+		linhas.forEach(linhaBruta -> {
 //			System.out.println(linhaBruta);
-//			String[] linha = ((String) linhaBruta).split(",");
-//			
-//			PreparedStatement preparedStatement = null;
-//			
+			String[] linha = ((String) linhaBruta).split(",");
+			
+			PreparedStatement preparedStatement = null;
+			
+			try{
+				
+				String insertTableSQL = "INSERT INTO User_iol "
+						+ "(name, ano, turma, turno, unidade, ismartId, login, password) VALUES "
+						+ "('"+linha[0]+"','"+linha[1]+"','"+linha[2]+"','"+linha[3]+"','"+linha[4]+"','"+linha[5]+"','"+linha[6]+"',"
+						+ "'$2a$10$u9D4zHxfupbNrHQ.zXV3n.jPtHQ5W1oG5th5FMMeXVEY20cMsvKCi');";
+				
+				System.out.println(insertTableSQL);
+				
+			} catch (Exception e){
+				e.printStackTrace();
+			}
+			
+			
+
+			
 //			try {
 //				preparedStatement = dbConnection.prepareStatement(insertTableSQL);
 //				
@@ -69,13 +88,13 @@ public class Runner {
 //				// TODO Auto-generated catch block
 //				e.printStackTrace();
 //			} 
-//			
-//			//$2a$10$u9D4zHxfupbNrHQ.zXV3n.jPtHQ5W1oG5th5FMMeXVEY20cMsvKCi
-//
-//			// execute insert SQL stetement
-//
+			
+			//$2a$10$u9D4zHxfupbNrHQ.zXV3n.jPtHQ5W1oG5th5FMMeXVEY20cMsvKCi
+
+			// execute insert SQL stetement
+
 //			System.out.println("Record is inserted into User_iol table!");
-//		});
+		});
 		
 		
 //		Iterator<String> linhaIt = linhas.iterator();
@@ -133,35 +152,35 @@ public class Runner {
 //		}
 		
 	}
-//	private static Connection getDBConnection() {
-//
-//		Connection dbConnection = null;
-//
-//		try {
-//
-//			Class.forName(DB_DRIVER);
-//
-//		} catch (ClassNotFoundException e) {
-//
-//			System.out.println(e.getMessage());
-//
-//		}
-//
-//		try {
-//
-//			dbConnection = DriverManager.getConnection(
-//                            DB_CONNECTION, DB_USER,DB_PASSWORD);
-//			return dbConnection;
-//
-//		} catch (SQLException e) {
-//
-//			System.out.println(e.getMessage());
-//
-//		}
-//
-//		return dbConnection;
-//
-//	}
+	private static Connection getDBConnection() {
+
+		Connection dbConnection = null;
+
+		try {
+
+			Class.forName(DB_DRIVER);
+
+		} catch (ClassNotFoundException e) {
+
+			System.out.println(e.getMessage());
+
+		}
+
+		try {
+
+			dbConnection = DriverManager.getConnection(
+                            DB_CONNECTION, DB_USER,DB_PASSWORD);
+			return dbConnection;
+
+		} catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+
+		}
+
+		return dbConnection;
+
+	}
 
 
 }

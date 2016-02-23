@@ -50,16 +50,14 @@ public class JPAProductionConfiguration {
 	   public DataSource dataSource(Environment environment) throws URISyntaxException
 	   {
 	      DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	      
-	      
-	      dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+	      dataSource.setDriverClassName("org.postgresql.Driver");
 	      
 	      URI dbUrl = new URI(environment.getProperty("DATABASE_URL"));
 	      
-	      dataSource.setUrl("jdbc:mysql://ioldb.c6dlimqsrzhh.sa-east-1.rds.amazonaws.com:3306/ismartonline");
+	      dataSource.setUrl("jdbc:postgresql://" + dbUrl.getHost() + ":" + dbUrl.getPort() + dbUrl.getPath());
 	      
-	      dataSource.setUsername("db_user_root");
-	      dataSource.setPassword("JPMarce1AndB3t0I4theV1ctory");
+	      dataSource.setUsername(dbUrl.getUserInfo().split(":")[0]);
+	      dataSource.setPassword(dbUrl.getUserInfo().split(":")[1]);
 	      return dataSource;
 	   }
 
