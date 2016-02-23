@@ -35,7 +35,7 @@
 						<!-- menu de categorias -->
 						<div class="list-group ">
 							<a href="<c:url value='/cultura/missao/ano-1' />" class="list-group-item ">O que faz um herói?</a>
-							<a href="<c:url value='/cultura/missao/ano-1/video-2' />" class="list-group-item ">Feira de Cências do Google</a>
+							<a href="<c:url value='/cultura/missao/ano-1/video-2' />" class="list-group-item ">Mude seu mundo!</a>
 						</div>
 					</div>
 					<div class="row" id="acoes">

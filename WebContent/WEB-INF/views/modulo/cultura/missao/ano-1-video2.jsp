@@ -34,8 +34,8 @@
 						</div>
 						<!-- menu de categorias -->
 						<div class="list-group ">
-							<a href="<c:url value='/cultura/missao/ano-1' />" class="list-group-item ">O que faz um herói?</a>
-							<a href="<c:url value='/cultura/missao/ano-1/video-2' />" class="list-group-item ">Feira de Cências do Google</a>
+							<a href="<c:url value='/cultura/missao/ano-1' />" class="list-group-item ">A Jornada do Herói</a>
+							<a href="<c:url value='/cultura/missao/ano-1/video-2' />" class="list-group-item ">Mude seu mundo!</a>
 						</div>
 					</div>
 					<div class="row" id="acoes">
@@ -65,17 +65,18 @@
 							<div class="thumbnail">
 								<iframe width="560" height="315" src="https://www.youtube.com/embed/3Rqcg7BJwJM" frameborder="0" allowfullscreen></iframe>
 								<div class="caption">
-									<h4>Feira de Cências do Google</h4>
+									<h4>Mude seu mundo!</h4>
 									<p>Missão 1</p>
 									<div class="btn-group">
 										
-										<a href="<c:url value='/cultura/missao/ano-8/' />" class="btn btn-primary">
+										<a href="<c:url value='/cultura/missao/ano-1/' />" class="btn btn-primary">
 											<< Anterior
 										</a>
-										<a href="${pageContext.request.contextPath}/resources/doc/missao1_1em.docx" class="btn btn-primary">
+										
+									</div>
+									<a href="${pageContext.request.contextPath}/resources/doc/missao1_1em.docx" class="btn btn-primary">
 											Instruções
 										</a>
-									</div>
 								</div>
 							</div>
 					</div>
