@@ -84,7 +84,7 @@
 									<a href="${pageContext.request.contextPath}/resources/doc/missao1_1em.pdf"  class="btn btn-primary">
 										<img src="${pageContext.request.contextPath}/resources/img/pdf-icon.png" height="20px" width="20px"/>
 									</a>
-									<a href="${pageContext.request.contextPath}/resources/doc/missao1_1em.docx"  class="btn btn-primary">
+									<a href="${pageContext.request.contextPath}/resources/doc/missao1_1em.doc"  class="btn btn-primary">
 										<img src="${pageContext.request.contextPath}/resources/img/word-icon.jpg" height="20px" width="20px"/>
 									</a>
 								</div>
