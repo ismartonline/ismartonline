@@ -74,11 +74,13 @@
 											<< Anterior
 										</a>
 									</div>
-									<div class="btn-group">
-										<a href="${pageContext.request.contextPath}/resources/doc/missao1_8.docx" class="btn btn-primary">
-											Instruções
+									<div class="btn-group ">
+										<a href="${pageContext.request.contextPath}/resources/doc/missao1_8.pdf"  class="btn btn-primary">
+											<img src="${pageContext.request.contextPath}/resources/img/pdf-icon.png" height="20px" width="20px"/>
 										</a>
-										
+										<a href="${pageContext.request.contextPath}/resources/doc/missao1_8.docx"  class="btn btn-primary">
+											<img src="${pageContext.request.contextPath}/resources/img/word-icon.jpg" height="20px" width="20px"/>
+										</a>
 									</div>
 								</div>
 							</div>

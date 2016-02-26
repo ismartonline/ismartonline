@@ -1,6 +1,11 @@
-target/
+target/*
 build/
 .classpath
 .project
 .settings
 .settings/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

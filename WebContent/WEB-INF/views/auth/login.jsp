@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
@@ -24,6 +27,9 @@
 <link
 	href="${pageContext.request.contextPath}/resources/assets/css/ie10-viewport-bug-workaround.css"
 	rel="stylesheet">
+	
+	<!-- Custom CSS -->
+	<link href="${pageContext.request.contextPath}/resources/css/landing-page.css" rel="stylesheet">	
 
 <!-- Custom styles for this template -->
 <link href="${pageContext.request.contextPath}/resources/css/signin.css"
@@ -39,37 +45,43 @@
 
 <body>
 
-	<div class="container">
+	<c:import url="../include/navigation.jsp" />
 
-		<form:form class="form-signin" servletRelativeAction="login">
-			<h2 class="form-signin-heading">Faça o Login</h2>
+ 	<div class="intro-header">
+		<div class="container">
+	
+			<form:form class="form-signin" servletRelativeAction="login">
+				<h2 class="form-signin-heading">Faça o Login</h2>
+				
+				<label for="inputEmail" class="sr-only">Email</label>
+				<input type="text" id="inputEmail" name="username"
+					class="form-control" placeholder="Email de cadastro" autofocus>
+					
+				<label for="inputPassword" class="sr-only">Senha</label>
+				<input type="password" id="inputPassword" name="password"
+					class="form-control" placeholder="Senha cadastrada" required>
+					
+					
+				<%--  Desabilitado - Passo 2!!!! 
+				<div class="checkbox">
+					<label> <input type="checkbox" value="remember-me">
+						Lembrar email e senha
+					</label>
+				</div>
+				--%>
+				
+				
+				<input class="btn btn-lg btn-primary btn-block" name="submit"
+					type="submit" value="Entrar">
+					
+			</form:form>
 			
-			<label for="inputEmail" class="sr-only">Email</label>
-			<input type="text" id="inputEmail" name="username"
-				class="form-control" placeholder="Email de cadastro" autofocus>
-				
-			<label for="inputPassword" class="sr-only">Senha</label>
-			<input type="password" id="inputPassword" name="password"
-				class="form-control" placeholder="Senha cadastrada" required>
-				
-				
-			<%--  Desabilitado - Passo 2!!!! 
-			<div class="checkbox">
-				<label> <input type="checkbox" value="remember-me">
-					Lembrar email e senha
-				</label>
-			</div>
-			--%>
-			
-			
-			<input class="btn btn-lg btn-primary btn-block" name="submit"
-				type="submit" value="Entrar">
-				
-		</form:form>
-		
-
-	</div>
+	
+		</div>
 	<!-- /container -->
+		</div>
+	
+	  <c:import url="../include/footer.jsp" />
 
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

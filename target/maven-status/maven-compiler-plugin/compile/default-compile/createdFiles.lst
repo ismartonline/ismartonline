@@ -1,5 +1,8 @@
+br/org/ismart/ismartonline/models/Mission.class
 br/org/ismart/ismartonline/conf/SpringSecurityFilterConfiguration.class
+br/org/ismart/ismartonline/models/PanicController.class
 br/org/ismartonline/lab/Runner.class
+br/org/ismart/ismartonline/controllers/MenuBarController.class
 br/org/ismart/ismartonline/models/User.class
 br/org/ismart/ismartonline/conf/AppWebConfiguration.class
 br/org/ismart/ismartonline/controllers/UserController.class

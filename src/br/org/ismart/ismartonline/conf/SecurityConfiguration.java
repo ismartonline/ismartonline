@@ -23,6 +23,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
       http.authorizeRequests()
 //      .antMatchers("/url1").hasRole("ADMIN")
     .antMatchers("/cadastro/**").permitAll()
+    .antMatchers("/vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a").permitAll()
     
 //      .antMatchers(HttpMethod.POST,"/specificUrl").hasRole("ADMIN")
 //      .antMatchers("/url3/**").permitAll()
