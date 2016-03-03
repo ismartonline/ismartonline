@@ -67,28 +67,18 @@
 					<div class="col-sm-11 text-center wow fadeInUp content-center"
 						data-wow-delay=".2s">
 						<div class="thumbnail">
-							<iframe width="560" height="315"
-								src="https://www.youtube.com/embed/Hhk4N9A0oCA" frameborder="0"
-								allowfullscreen class="content-center"></iframe>
-							<div class="caption">
-								<h4>O que faz um herói?</h4>
-								<p>Missão 1</p>
-								<div class="btn-group ">
-
-									<a href="<c:url value='/cultura/missao/ano-1/video-2' />"
-										class="btn btn-primary"> Próximo >> </a>
-
-								</div>
+							
+							<form:form action="entrega/submit" method="post" commandName="deliver" enctype="multipart/form-data">
 								
-								<div class="btn-group ">
-									<a href="${pageContext.request.contextPath}/resources/doc/missao1_1em.pdf"  class="btn btn-primary">
-										<img src="${pageContext.request.contextPath}/resources/img/pdf-icon.png" height="20px" width="20px"/>
-									</a>
-									<a href="${pageContext.request.contextPath}/resources/doc/missao1_1em.doc"  class="btn btn-primary">
-										<img src="${pageContext.request.contextPath}/resources/img/word-icon.jpg" height="20px" width="20px"/>
-									</a>
-								</div>
-							</div>
+								<label for="delivery">Arquivo</label>
+								<input type="file" name="delivery" id="delivery"/>
+								<form:errors path="deliveryPath"/> 
+								
+								
+								<input class="btn btn-lg btn-primary btn-block" name="submit"
+					type="submit" value="Salvar">
+							
+							</form:form>
 
 						</div>
 					</div>

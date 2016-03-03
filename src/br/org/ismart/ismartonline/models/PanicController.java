@@ -11,23 +11,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PanicController {
 
-	@RequestMapping("vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a")
-	public void batch() throws SQLException, InterruptedException {
-
-		final Connection dbConnection = getDBConnection();
-
-		for (int i = 0; i < array.length; i++) {
-
-			if (i % 10 == 0)
-				Thread.sleep(3000);
-
-			System.out.println(array[i]);
-			PreparedStatement preparedStatement = dbConnection.prepareStatement(array[i]);
-
-			preparedStatement.executeUpdate();
-		}
-
-	}
+//	@RequestMapping("vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a")
+//	public void batch() throws SQLException, InterruptedException {
+//
+//		final Connection dbConnection = getDBConnection();
+//
+//		for (int i = 0; i < array.length; i++) {
+//
+//			if (i % 10 == 0)
+//				Thread.sleep(3000);
+//
+//			System.out.println(array[i]);
+//			PreparedStatement preparedStatement = dbConnection.prepareStatement(array[i]);
+//
+//			preparedStatement.executeUpdate();
+//		}
+//
+//	}
 
 	private Connection getDBConnection() {
 
