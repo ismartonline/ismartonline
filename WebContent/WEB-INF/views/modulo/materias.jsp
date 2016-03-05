@@ -6,6 +6,8 @@
 
 <html lang="pt-BR">
 	<c:import url="../include/head.jsp" />
+	
+	
 
 
 	<body>
@@ -14,80 +16,40 @@
 		
 		<!-- Conteudo da pagina vai aqui! -->
 		
-		<div class="container-fluid intro-header">
-			<div class="title">
-				<h3></h3>
-			</div>
-			<div class="title">
-				<h5>AQUI VOCÊ VAI APRENDER bla bla bla bla</h5>
-			</div>
-			
-			<div class="row">
-				<div class="col-sm-3">
-					<div class="title">
-						<h3>Menu</h3>
-					</div>
-					<!-- menu de categorias -->
-					<div class="list-group ">
-						<a href="#" class="list-group-item ">Planos de Estudo</a>
-						<a href="#" class="list-group-item ">Outras Aulas</a>
-						<a href="#" class="list-group-item ">Desempenho</a>
-					</div>
-				</div>
-				<!-- bloco conteudo -->
-				<div class="col-sm-9">
-					<!-- novidades -->
-					<div class="row" id="novidades">
-						<div class="col-sm-12 text-center">
-							<h3>Aulas</h3>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-4 text-center wow fadeInUp" data-wow-delay=".2s">
-							<div class="thumbnail">
-								<div class="caption">
-									<h4>História</h4>
-									<div class="btn-group">
-										<a href="#" class="btn btn-primary">
-											Ver Aulas
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- e um produto -->
-						<div class="col-sm-4 text-center wow fadeInUp" data-wow-delay=".2s">
-							<div class="thumbnail">
-								<div class="caption">
-									<h4>Português</h4>
-									<div class="btn-group">
-										<a href="#" class="btn btn-primary">
-											Ver Aulas
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4 text-center wow fadeInUp" data-wow-delay=".2s">
-							<div class="thumbnail">
-								<div class="caption">
-									<h4>Matemática</h4>
-									<div class="btn-group">
-										<a href="#" class="btn btn-primary">
-											Ver Aulas
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-					</div><!-- fim dos mais vendidos -->
-				</div><!-- fim do bloco conteudo -->
-			</div> <!-- fim da linha principal -->
+		   <!-- Header -->
+	    <div class="intro-header">
+	        <div class="container">
 	
-		</div> <!-- fim container fluid -->
-		
-		<!-- Fim do espaço para o conteudo da página -->
+	            <div class="row">
+	                <div class="col-lg-12">
+	                    <div class="intro-message caption">
+	                        <h3>Módulo de Matérias</h3>
+	                        <hr class="intro-divider">
+	                        
+	                        <div class="thumbnail">
+		                        <form action="https://www.geekielab.com.br/login/launch" method="post" target="_blank" attribute-has-placeholders="action">
+						          <input type="hidden" name="user_id" value="${userId}">
+						          <input type="hidden" name="oauth_consumer_key"  value="${organizationId}">
+						          <input type="hidden" name="oauth_nonce"  value="${nonce}">
+						          <input type="hidden" name="oauth_signature_method" value="HMAC-SHA1">
+						          <input type="hidden" name="oauth_timestamp"  value="${timestamp}">
+						          <input type="hidden" name="oauth_version" value="1.0">
+						          <input type="hidden" name="oauth_signature" value="${signature}">
+						          
+						          <button class="btn btn-geekie">
+						            Acessar a Geekie&nbsp;&nbsp;<span class="glyphicon glyphicon-new-window"></span>
+						          </button>
+						        </form>
+					        </div>
+	                    </div>
+	                </div>
+	            </div>
+	
+	        </div>
+	        <!-- /.container -->
+	
+	    </div>
+	    <!-- /.intro-header -->
 	
 	
 	   	<c:import url="../include/footer.jsp" />

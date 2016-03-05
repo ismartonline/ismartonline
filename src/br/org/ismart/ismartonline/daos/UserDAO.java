@@ -13,27 +13,29 @@ import org.springframework.stereotype.Repository;
 import br.org.ismart.ismartonline.models.User;
 
 @Repository
-public class UserDetailsServiceDAO implements UserDetailsService {
+public class UserDAO  {
 
 	@PersistenceContext
 	private EntityManager em;
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		String jpql = "select u from User u where u.login = :login";
-
-		List<User> users = em.createQuery(jpql, User.class).setParameter("login", username).getResultList();
-
-		if (users.isEmpty()) {
-			throw new UsernameNotFoundException("O usuario " + username + "não existe.");
-
-		}
-		return users.get(0);
-	}
 
 	public void salva(User user) {
 
 		em.persist(user);
 
 	}
+	
+	public void atualiza(User user){
+		em.merge(user);
+	}
+
+	public List<User> lista() {
+		
+		return em.createQuery("select u from User u", User.class).getResultList();
+	}
+
+	public List<User> listaFakes() {
+		return em.createQuery("select u from User u where u.login like 'alunoteste%' ", User.class).getResultList();
+	}
+
 }

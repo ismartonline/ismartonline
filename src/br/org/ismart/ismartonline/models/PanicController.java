@@ -4,30 +4,57 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-public class PanicController {
+import br.org.ismart.ismartonline.daos.UserDAO;
+import br.org.ismart.ismartonline.services.GeekieLab;
 
-//	@RequestMapping("vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a")
-//	public void batch() throws SQLException, InterruptedException {
-//
-//		final Connection dbConnection = getDBConnection();
-//
-//		for (int i = 0; i < array.length; i++) {
-//
-//			if (i % 10 == 0)
-//				Thread.sleep(3000);
-//
-//			System.out.println(array[i]);
-//			PreparedStatement preparedStatement = dbConnection.prepareStatement(array[i]);
-//
-//			preparedStatement.executeUpdate();
-//		}
-//
-//	}
+@Controller
+@Transactional
+public class PanicController {
+	
+	@Autowired
+	private UserDAO dao;
+
+	@RequestMapping("vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a-user")
+	public void batch() throws SQLException, InterruptedException {
+
+		List <User> users = dao.lista();
+		GeekieLab geekieLab = new GeekieLab();
+		
+		for (User user : users) {
+			System.out.println("####################################################################################");
+			System.out.println("IsmartId: " + user.getIsmartId());
+			
+			GeekieStudent student = geekieLab.getStudentByExternalId(geekieLab.getOrganizationId(user), user.getIsmartId(), geekieLab.getSigninKey(user));
+			
+			System.out.println("=====================================================================================\n\n");
+			user.setGeekieId(student.getId());
+			dao.atualiza(user);
+		}
+
+	}
+
+
+	private void insertStudents() throws SQLException, InterruptedException {
+		final Connection dbConnection = getDBConnection();
+
+		for (int i = 0; i < array.length; i++) {
+
+			if (i % 10 == 0)
+				Thread.sleep(3000);
+
+			System.out.println(array[i]);
+			PreparedStatement preparedStatement = dbConnection.prepareStatement(array[i]);
+
+			preparedStatement.executeUpdate();
+		}
+	}
 
 	private Connection getDBConnection() {
 

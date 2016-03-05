@@ -116,7 +116,9 @@ public class User implements UserDetails {
 		return roles;
 	}
 	
-	
+	public void setGeekieId(String geekieId){
+		this.geekieId = geekieId;
+	}
 	
 
 }
