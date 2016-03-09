@@ -6,11 +6,11 @@
 
 <html lang="pt-BR">
 
-<c:import url="../../../include/head-cultura.jsp" />
+<c:import url="../../../../include/head-cultura.jsp" />
 
 <body>
 
-	<c:import url="../../../include/navigation.jsp" />
+	<c:import url="../../../../include/navigation.jsp" />
 
 	<!-- Conteudo da pagina vai aqui! -->
 
@@ -62,40 +62,12 @@
 						<h3>Missão 1</h3>
 					</div>
 				</div>
-
-				<div class="row">
-					<div class="col-sm-11 text-center wow fadeInUp content-center"
-						data-wow-delay=".2s">
-						<div class="thumbnail">
-							<iframe width="560" height="315"
-								src="https://www.youtube.com/embed/Hhk4N9A0oCA" frameborder="0"
-								allowfullscreen class="content-center"></iframe>
-							<div class="caption">
-								<h4>O que faz um herói?</h4>
-								<p>Missão 1</p>
-								<div class="btn-group ">
-
-									<a href="<c:url value='/cultura/missao/ano-1/video-2' />"
-										class="btn btn-primary"> Próximo >> </a>
-
-								</div>
-								
-								<div class="btn-group ">
-									<a href="${pageContext.request.contextPath}/resources/doc/missao1_1em.pdf"  class="btn btn-primary">
-										<img src="${pageContext.request.contextPath}/resources/img/pdf-icon.png" height="20px" width="20px"/>
-									</a>
-									<a href="${pageContext.request.contextPath}/resources/doc/missao1_1em.doc"  class="btn btn-primary">
-										<img src="${pageContext.request.contextPath}/resources/img/word-icon.jpg" height="20px" width="20px"/>
-									</a>
-								</div>
-							</div>
-
-						</div>
-					</div>
-					<!-- e um produto -->
-
-
+				
+				<div class="thumbnail">
+						<p style="color: black">Arquivo enviado com sucesso!</p>
 				</div>
+
+				
 				<!-- fim dos mais vendidos -->
 			</div>
 			<!-- fim do bloco conteudo -->
@@ -109,7 +81,7 @@
 	<!-- Fim do espaço para o conteudo da página -->
 
 
-	<c:import url="../../../include/footer.jsp" />
+	<c:import url="../../../../include/footer.jsp" />
 
 </body>
 

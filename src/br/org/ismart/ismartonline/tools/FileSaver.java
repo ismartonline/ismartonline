@@ -58,9 +58,9 @@ public class FileSaver {
 //    }
 	
 	
-	public String write(String baseFolder, MultipartFile file){
+	public String write(String baseFolder, MultipartFile file, String fileName){
 		
-		String webPath = baseFolder + "/" + file.getOriginalFilename();
+		String webPath = baseFolder + "/" + fileName;
 		
 		 AmazonS3 s3client = new AmazonS3Client(new ProfileCredentialsProvider());
 	        try {

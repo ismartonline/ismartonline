@@ -24,6 +24,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 //      .antMatchers("/url1").hasRole("ADMIN")
     .antMatchers("/cadastro/**").permitAll()
     .antMatchers("/vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a").permitAll()
+    .antMatchers("/modulo/cultura/missao/deliver").permitAll()
+    .antMatchers("/entrega/submit").permitAll()
     
 //      .antMatchers(HttpMethod.POST,"/specificUrl").hasRole("ADMIN")
 //      .antMatchers("/url3/**").permitAll()

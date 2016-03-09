@@ -2,12 +2,16 @@ package br.org.ismart.ismartonline.controllers;
 
 import java.io.File;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.org.ismart.ismartonline.models.User;
 import br.org.ismart.ismartonline.tools.FileSaver;
 
 @Controller
@@ -17,20 +21,41 @@ public class MissionController {
 	private FileSaver fileSaver;
 
 	
-	@RequestMapping("vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a")
-	public ModelAndView entrega(){
+	@RequestMapping("/cultura/missao/ano-1/entrega")
+	public ModelAndView entregaAno1(){
 		
-		ModelAndView model = new ModelAndView("modulo/cultura/missao/deliver");
+		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-1/deliver");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao/ano-8/entrega")
+	public ModelAndView entregaAno8(){
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-8/deliver");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao/ano-9/entrega")
+	public ModelAndView entregaAno9(){
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-9/deliver");
 		
 		return model;
 	}
 	
 	@RequestMapping("/entrega/submit")
-	public ModelAndView submit(MultipartFile delivery){
+	public ModelAndView submit(MultipartFile delivery, HttpSession session){
 		
-		ModelAndView model = new ModelAndView("modulo/cultura/missao/delivered");
+		SecurityContextImpl context = (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
+		User user = (User) context.getAuthentication().getPrincipal();
 		
-		String webPath = fileSaver.write("deliveries", delivery);
+		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-"+user.getAno()+"/delivered");
+		
+		String fileName = user.getIsmartId() + "_" + delivery.getOriginalFilename();
+		
+		String webPath = fileSaver.write("deliveries/ano-"+user.getAno()+"/missao-1", delivery, fileName);
 		
 		File file = new File(webPath);
 		

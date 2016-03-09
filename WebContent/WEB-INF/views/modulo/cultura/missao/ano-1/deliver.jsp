@@ -6,11 +6,11 @@
 
 <html lang="pt-BR">
 
-<c:import url="../../../include/head-cultura.jsp" />
+<c:import url="../../../../include/head-cultura.jsp" />
 
 <body>
 
-	<c:import url="../../../include/navigation.jsp" />
+	<c:import url="../../../../include/navigation.jsp" />
 
 	<!-- Conteudo da pagina vai aqui! -->
 
@@ -58,37 +58,29 @@
 			<div class="col-sm-7">
 				<!-- novidades -->
 				<div class="row" id="novidades">
-					<div class="col-sm-12 text-center">
-						<h3>Missão 1</h3>
+					<div class="col-sm-7 text-center">
+						<h3>Missão 1 - Entrega!!</h3>
 					</div>
 				</div>
 
 				<div class="row">
-					<div class="col-sm-11 text-center wow fadeInUp content-center"
+					<div class="col-lg-7 text-center wow fadeInUp content-center"
 						data-wow-delay=".2s">
 						<div class="thumbnail">
-							<iframe width="560" height="315"
-								src="https://www.youtube.com/embed/Hhk4N9A0oCA" frameborder="0"
-								allowfullscreen class="content-center"></iframe>
-							<div class="caption">
-								<h4>O que faz um herói?</h4>
-								<p>Missão 1</p>
-								<div class="btn-group ">
-
-									<a href="<c:url value='/cultura/missao/ano-1/video-2' />"
-										class="btn btn-primary"> Próximo >> </a>
-
-								</div>
+							
+							<form:form action="${pageContext.request.contextPath}/entrega/submit" method="post" commandName="deliver" enctype="multipart/form-data">
 								
-								<div class="btn-group ">
-									<a href="${pageContext.request.contextPath}/resources/doc/missao1_1em.pdf"  class="btn btn-primary">
-										<img src="${pageContext.request.contextPath}/resources/img/pdf-icon.png" height="20px" width="20px"/>
-									</a>
-									<a href="${pageContext.request.contextPath}/resources/doc/missao1_1em.doc"  class="btn btn-primary">
-										<img src="${pageContext.request.contextPath}/resources/img/word-icon.jpg" height="20px" width="20px"/>
-									</a>
-								</div>
-							</div>
+									<p style="color: black" id="fileName"></p>
+								
+									<label for="delivery"> <span class="btn btn-success btn-block">Selecione o arquivo</span></label>
+									<input type="file" name="delivery" id="delivery" 	style="visibility: hidden; position: absolute;"/>
+									
+									<form:errors path="deliveryPath"/> 
+								
+									<label for="submitButton"> <span class="btn btn-primary btn-block">Salvar</span></label>
+									<input id="submitButton" name="submit" type="submit" value="Salvar" style="visibility: hidden; position: absolute;">
+									
+							</form:form>
 
 						</div>
 					</div>
@@ -109,7 +101,30 @@
 	<!-- Fim do espaço para o conteudo da página -->
 
 
-	<c:import url="../../../include/footer.jsp" />
+	<c:import url="../../../../include/footer.jsp" />
+	
+	<script type="text/javascript">
+	
+	function updated(event) {
+	    var count = 0;
+	    console.log(event.path);
+	    for ( i = 0; i < event.path.length; i++ ) {
+	        var tmpObj = event.path[i];
+	        
+	        if ( tmpObj.value !== undefined ) {
+	        	
+	        	$('#fileName').html(tmpObj.value.substr(12));
+	        	
+	        }
+	    }
+	    
+	}
+
+	var el = document.getElementById('delivery');
+	
+	el.onchange = updated;
+	
+	</script>
 
 </body>
 
