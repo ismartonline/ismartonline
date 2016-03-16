@@ -59,7 +59,7 @@ public class JPAConfiguration
 //      dataSource.setUrl("jdbc:mysql://localhost/ismartonline");
 //      dataSource.setUsername("root");
 //      dataSource.setPassword("");
-      return dataSource;
+//      return dataSource;
    }
 
    @Bean
