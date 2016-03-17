@@ -19,9 +19,6 @@ import br.org.ismart.ismartonline.services.GoogleClassroomClient;
 public class ModuloController {
 	
 	@Autowired
-	private GoogleClassroomClient googleClassroomClient;
-	
-	@Autowired
 	private GeekieLab geekieLab;
 	
 	@Autowired
@@ -32,26 +29,56 @@ public class ModuloController {
 		
 		ModelAndView model = new ModelAndView("modulo/cultura");
 		
-	//	try {
-			
-		//	List<IsmartCourse> courses = googleClassroomClient.getCourses();
-			
-			 
-			
-			
-			//model.addObject("cursos", courses);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-2/ano-8")
+	public ModelAndView missao2Ano8(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-2/ano-8");
 		
 		return model;
 	}
+	
+	@RequestMapping("/cultura/missao-2/ano-8/video-2")
+	public ModelAndView missao2Ano8Video2(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-2/ano-8-video2");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-2/ano-8/video-3")
+	public ModelAndView missao2Ano8Video3(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-2/ano-8-video3");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-2/ano-9")
+	public ModelAndView missao2Ano9(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-2/ano-9");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-2/ano-1")
+	public ModelAndView missao2Ano1(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-2/ano-1");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-2/ano-1/video-2")
+	public ModelAndView missao2Ano1Video2(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-2/ano-1-video2");
+		
+		return model;
+	}
+	
 	
 	@RequestMapping("/cultura/missao/ano-8")
 	public ModelAndView missao8(String missao){
 		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-8");
 		
-		System.out.println(missao);
 		return model;
 	}
 	
@@ -59,7 +86,6 @@ public class ModuloController {
 	public ModelAndView missao8Video2(String missao){
 		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-8-video2");
 		
-		System.out.println(missao);
 		return model;
 	}
 	
@@ -67,7 +93,6 @@ public class ModuloController {
 	public ModelAndView missao8Video3(String missao){
 		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-8-video3");
 		
-		System.out.println(missao);
 		return model;
 	}
 	
@@ -75,7 +100,6 @@ public class ModuloController {
 	public ModelAndView missao9(String missao){
 		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-9");
 		
-		System.out.println(missao);
 		return model;
 	}
 	
@@ -83,7 +107,6 @@ public class ModuloController {
 	public ModelAndView missao1(String missao){
 		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-1");
 		
-		System.out.println(missao);
 		return model;
 	}
 	
@@ -91,7 +114,6 @@ public class ModuloController {
 	public ModelAndView missao1Video2(String missao){
 		ModelAndView model = new ModelAndView("modulo/cultura/missao/ano-1-video2");
 		
-		System.out.println(missao);
 		return model;
 	}
 	

@@ -63,7 +63,7 @@
 										<p>Missão 2</p>
 										<div class="btn-group">
 										
-											<a href="<c:url value='/cultura/missao/ano-${user.ano}'/>" class="btn btn-primary">
+											<a href="<c:url value='/cultura/missao-2/ano-${user.ano}'/>" class="btn btn-primary">
 												Ir para Missão
 											</a>
 										</div>

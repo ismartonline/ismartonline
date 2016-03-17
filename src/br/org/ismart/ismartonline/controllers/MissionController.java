@@ -45,6 +45,30 @@ public class MissionController {
 		return model;
 	}
 	
+	@RequestMapping("/cultura/missao-2/ano-1/entrega")
+	public ModelAndView entregaMissao2Ano1(){
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-2/ano-1/deliver");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-2/ano-8/entrega")
+	public ModelAndView entregaMissao2Ano8(){
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-2/ano-8/deliver");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-2/ano-9/entrega")
+	public ModelAndView entregaMissao2Ano9(){
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-2/ano-9/deliver");
+		
+		return model;
+	}
+	
 	@RequestMapping("/entrega/submit")
 	public ModelAndView submit(MultipartFile delivery, HttpSession session){
 		
@@ -56,6 +80,28 @@ public class MissionController {
 		String fileName = user.getIsmartId() + "_" + delivery.getOriginalFilename();
 		
 		String webPath = fileSaver.write("deliveries/ano-"+user.getAno()+"/missao-1", delivery, fileName);
+		
+		File file = new File(webPath);
+		
+		model.addObject("webPath", webPath);
+		model.addObject("file", file);
+		
+		System.out.println("WEBPATH " + webPath);
+		
+		return model;
+	}
+	
+	@RequestMapping("/entrega-missao-2/submit")
+	public ModelAndView mission2Submit(MultipartFile delivery, HttpSession session){
+		
+		SecurityContextImpl context = (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
+		User user = (User) context.getAuthentication().getPrincipal();
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-2/ano-"+user.getAno()+"/delivered");
+		
+		String fileName = user.getIsmartId() + "_" + delivery.getOriginalFilename();
+		
+		String webPath = fileSaver.write("deliveries/ano-"+user.getAno()+"/missao-2", delivery, fileName);
 		
 		File file = new File(webPath);
 		

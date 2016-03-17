@@ -35,10 +35,8 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-						<a href="<c:url value='/cultura/missao/ano-1' />"
-							class="list-group-item ">O que faz um herói?</a> <a
-							href="<c:url value='/cultura/missao/ano-1/video-2' />"
-							class="list-group-item ">Mude seu mundo!</a>
+						<a href="<c:url value='/cultura/missao-2/ano-1' />"
+							class="list-group-item ">Growth Mindset</a> 
 					</div>
 				</div>
 				<div class="row" id="acoes">
@@ -47,7 +45,7 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-						<a href="<c:url value='/cultura/missao/ano-1/entrega' />" class="list-group-item ">Entrega</a> <a href="#"
+						<a href="<c:url value='/cultura/missao-2/ano-1/entrega' />" class="list-group-item ">Entrega</a> <a href="#"
 							class="list-group-item ">Resultado</a> <a href="#"
 							class="list-group-item ">Fórum</a>
 					</div>
@@ -59,7 +57,7 @@
 				<!-- novidades -->
 				<div class="row" id="novidades">
 					<div class="col-sm-12 text-center">
-						<h3>Missão 1</h3>
+						<h3>Missão 2</h3>
 					</div>
 				</div>
 				

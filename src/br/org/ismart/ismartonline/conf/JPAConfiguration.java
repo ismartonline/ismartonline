@@ -53,13 +53,8 @@ public class JPAConfiguration
       dataSource.setUrl(jdbcUrl);
       dataSource.setUsername(userName);
       dataSource.setPassword(password);
-//      
       
-      // ##### DEV SETTINGS #######
-//      dataSource.setUrl("jdbc:mysql://localhost/ismartonline");
-//      dataSource.setUsername("root");
-//      dataSource.setPassword("");
-//      return dataSource;
+      return dataSource;
    }
 
    @Bean

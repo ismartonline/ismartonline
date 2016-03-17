@@ -35,7 +35,7 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-						<a href="#" class="list-group-item ">Missão 1</a>
+						<a href="#" class="list-group-item ">Missão 2</a>
 					</div>
 				</div>
 				<div class="row" id="acoes">
@@ -44,7 +44,7 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-						<a href="<c:url value='/cultura/missao/ano-9/entrega' />" class="list-group-item ">Entrega</a> <a href="#"
+						<a href="<c:url value='/cultura/missao-2/ano-9/entrega' />" class="list-group-item ">Entrega</a> <a href="#"
 							class="list-group-item ">Resultado</a> <a href="#"
 							class="list-group-item ">Fórum</a>
 					</div>
@@ -56,7 +56,7 @@
 				<!-- novidades -->
 				<div class="row" id="novidades">
 					<div class="col-sm-12 text-center">
-						<h3>Missão 1</h3>
+						<h3>Missão 2</h3>
 					</div>
 				</div>
 

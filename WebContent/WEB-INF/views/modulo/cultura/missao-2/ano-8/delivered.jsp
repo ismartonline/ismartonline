@@ -35,9 +35,12 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-							<a href="<c:url value='/cultura/missao/ano-8' />" class="list-group-item ">Chamado - O sonho de Ismar</a>
-							<a href="<c:url value='/cultura/missao/ano-8/video-2' />" class="list-group-item ">Chamado - depoimento bolsista do ismart</a>
-							<a href="<c:url value='/cultura/missao/ano-8/video-3' />" class="list-group-item ">Chamado - Faça acontecer</a>
+							<a href="<c:url value='/cultura/missao-2/ano-8' />"
+							class="list-group-item ">Encontro com o Sábio - A Rã do Poço</a>
+						<a href="<c:url value='/cultura/missao-2/ano-8/video-2' />"
+							class="list-group-item ">Depoimento de bolsistas do Ismart</a> <a
+							href="<c:url value='/cultura/missao-2/ano-8/video-3' />"
+							class="list-group-item ">Encontro com o Sábio - Missão 2</a>
 						</div>
 				</div>
 				<div class="row" id="acoes">
@@ -46,7 +49,7 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-						<a href="<c:url value='/cultura/missao/ano-8/entrega' />" class="list-group-item ">Entrega</a> <a href="#"
+						<a href="<c:url value='/cultura/missao-2/ano-8/entrega' />" class="list-group-item ">Entrega</a> <a href="#"
 							class="list-group-item ">Resultado</a> <a href="#"
 							class="list-group-item ">Fórum</a>
 					</div>
@@ -58,7 +61,7 @@
 				<!-- novidades -->
 				<div class="row" id="novidades">
 					<div class="col-sm-12 text-center">
-						<h3>Missão 1</h3>
+						<h3>Missão 2</h3>
 					</div>
 				</div>
 
