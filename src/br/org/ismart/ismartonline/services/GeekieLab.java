@@ -80,8 +80,8 @@ public class GeekieLab {
 
 	public static void main(String[] args) {
 
-		//GeekieStudent student = new GeekieLab().createStudent("", "Julio Vidal2", "10000000000000215", "123", "80z5Bz9xi2xOXgtxmz1lXD4ILJKscYHV6xdV3vHaVled4Z1U2g");
-		GeekieStudent student = new GeekieLab().getStudentByExternalId("10000000000000215", "-2", "80z5Bz9xi2xOXgtxmz1lXD4ILJKscYHV6xdV3vHaVled4Z1U2g");
+		GeekieStudent student = new GeekieLab().createStudent("", "Julio Vidal2", "10000000000000215", "123", "80z5Bz9xi2xOXgtxmz1lXD4ILJKscYHV6xdV3vHaVled4Z1U2g");
+		//GeekieStudent student = new GeekieLab().getStudentByExternalId("10000000000000215", "-2", "80z5Bz9xi2xOXgtxmz1lXD4ILJKscYHV6xdV3vHaVled4Z1U2g");
 
 	}
 

@@ -1,4 +1,4 @@
-package br.org.ismart.ismartonline.models;
+package br.org.ismart.ismartonline.controllers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,34 +12,57 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.org.ismart.ismartonline.daos.UserDAO;
+import br.org.ismart.ismartonline.models.GeekieStudent;
+import br.org.ismart.ismartonline.models.User;
 import br.org.ismart.ismartonline.services.GeekieLab;
 
 @Controller
 @Transactional
 public class PanicController {
-	
+
 	@Autowired
 	private UserDAO dao;
 
-	@RequestMapping("vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a-user")
-	public void batch() throws SQLException, InterruptedException {
+	@RequestMapping("vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a/create-users")
+	public void createStudents() {
 
-		List <User> users = dao.lista();
+		List<User> users = dao.listaMentores();
 		GeekieLab geekieLab = new GeekieLab();
-		
+
 		for (User user : users) {
 			System.out.println("####################################################################################");
 			System.out.println("IsmartId: " + user.getIsmartId());
+
+			GeekieStudent student = geekieLab.createStudent(geekieLab.createTagsString(user), user.getName(),
+					geekieLab.getOrganizationId(user), user.getIsmartId(), geekieLab.getSigninKey(user));
 			
-			GeekieStudent student = geekieLab.getStudentByExternalId(geekieLab.getOrganizationId(user), user.getIsmartId(), geekieLab.getSigninKey(user));
-			
-			System.out.println("=====================================================================================\n\n");
+			System.out.println(
+					"=====================================================================================\n\n");
+			user.setGeekieId(student.getId());
+			dao.atualiza(user);
+		}
+	}
+
+	@RequestMapping("vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a/update-users")
+	public void batch() throws SQLException, InterruptedException {
+
+		List<User> users = dao.lista();
+		GeekieLab geekieLab = new GeekieLab();
+
+		for (User user : users) {
+			System.out.println("####################################################################################");
+			System.out.println("IsmartId: " + user.getIsmartId());
+
+			GeekieStudent student = geekieLab.getStudentByExternalId(geekieLab.getOrganizationId(user),
+					user.getIsmartId(), geekieLab.getSigninKey(user));
+
+			System.out.println(
+					"=====================================================================================\n\n");
 			user.setGeekieId(student.getId());
 			dao.atualiza(user);
 		}
 
 	}
-
 
 	private void insertStudents() throws SQLException, InterruptedException {
 		final Connection dbConnection = getDBConnection();
@@ -66,11 +89,11 @@ public class PanicController {
 		String hostname = System.getProperty("RDS_HOSTNAME");
 		String port = System.getProperty("RDS_PORT");
 
-//		 String dbName = "ismartonline";
-//		 String userName = "root";
-//		 String password = "";
-//		 String hostname = "localhost";
-//		 String port = "3306";
+		// String dbName = "ismartonline";
+		// String userName = "root";
+		// String password = "";
+		// String hostname = "localhost";
+		// String port = "3306";
 
 		String jdbcUrl = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName;
 

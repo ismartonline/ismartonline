@@ -21,9 +21,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
      // EXAMPLE OF AUTHENTICATION AND AUTHORIZATION
       
       http.authorizeRequests()
-//      .antMatchers("/url1").hasRole("ADMIN")
+      //TODO: verificar se da pra deixar um matcher só
+    .antMatchers("/admin").hasRole("ADMIN")
+    .antMatchers("/admin/**").hasRole("ADMIN")
     .antMatchers("/cadastro/**").permitAll()
-    .antMatchers("/vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a").permitAll()
+    .antMatchers("/vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a/").permitAll()
     .antMatchers("/modulo/cultura/missao/deliver").permitAll()
     .antMatchers("/entrega/submit").permitAll()
     

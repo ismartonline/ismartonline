@@ -23,6 +23,11 @@
             	<sec:authentication property="principal" var="user"/>
             	<a class="navbar-brand header-line topnav" href="<c:url value='/aluno'/>" >${user.name} - ${user.ano} Ano</a>
             	
+            	<sec:authorize access="hasRole('ROLE_ADMIN')">
+            		<a class="navbar-brand header-line topnav"  href="#">|</a>
+	            	<a class="navbar-brand header-line topnav" href="<c:url value='/admin'/>" >Painel de Controle</a>
+            	</sec:authorize>
+            	
             	<a class="navbar-brand header-line topnav"  href="#">|</a>
             	<a class="navbar-brand header-line topnav" href="<c:url value='/logout'/>" >Sair</a>
             </sec:authorize>

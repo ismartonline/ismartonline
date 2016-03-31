@@ -39,4 +39,8 @@ public class UserDAO  {
 		return em.createQuery("select u from User u where u.login like 'alunoteste%' ", User.class).getResultList();
 	}
 
+	public List<User> listaMentores() {
+		return em.createQuery("select u from User u where u.login like 'mentorismart%' ", User.class).getResultList();
+	}
+
 }
