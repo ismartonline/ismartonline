@@ -6,11 +6,11 @@
 
 <html lang="pt-BR">
 
-<c:import url="../../../include/head-cultura.jsp" />
+<c:import url="../../../../include/head-cultura.jsp" />
 
 <body>
 
-	<c:import url="../../../include/navigation.jsp" />
+	<c:import url="../../../../include/navigation.jsp" />
 
 	<!-- Conteudo da pagina vai aqui! -->
 
@@ -35,7 +35,7 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-						<a href="#" class="list-group-item ">Missão 2</a>
+						<a href="#" class="list-group-item ">Missão 3</a>
 					</div>
 				</div>
 				<div class="row" id="acoes">
@@ -44,8 +44,7 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-						<a href="<c:url value='/cultura/missao-2/ano-9/entrega' />"
-							class="list-group-item ">Entrega</a> <a href="#"
+						<a href="<c:url value='/cultura/missao-3/ano-9/entrega' />" class="list-group-item ">Entrega</a> <a href="#"
 							class="list-group-item ">Resultado</a> <a href="#"
 							class="list-group-item ">Fórum</a>
 					</div>
@@ -53,44 +52,16 @@
 			</div>
 
 			<!-- bloco conteudo -->
-			<div class="col-sm-9">
+			<div class="col-sm-7">
 				<!-- novidades -->
 				<div class="row" id="novidades">
 					<div class="col-sm-12 text-center">
-						<h3>Missão 2</h3>
+						<h3>Missão 3</h3>
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-sm-9 text-center wow fadeInUp content-center"
-						data-wow-delay=".2s">
-						<div class="thumbnail">
-							<iframe src="https://player.vimeo.com/video/126189362"
-								width="500" height="281" frameborder="0" webkitallowfullscreen
-								mozallowfullscreen allowfullscreen></iframe>
-							
-
-							<div class="caption">
-								<p>Missão 2</p>
-								<div class="btn-group ">
-									<a
-										href="${pageContext.request.contextPath}/resources/doc/missao2_9.pdf"
-										class="btn btn-primary"> <img
-										src="${pageContext.request.contextPath}/resources/img/pdf-icon.png"
-										height="20px" width="20px" />
-									</a> <a
-										href="${pageContext.request.contextPath}/resources/doc/missao2_9.doc"
-										class="btn btn-primary"> <img
-										src="${pageContext.request.contextPath}/resources/img/word-icon.jpg"
-										height="20px" width="20px" />
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- e um produto -->
-
-
+				<div class="thumbnail">
+						<p style="color: black">Arquivo enviado com sucesso!</p>
 				</div>
 				<!-- fim dos mais vendidos -->
 			</div>
@@ -105,7 +76,7 @@
 	<!-- Fim do espaço para o conteudo da página -->
 
 
-	<c:import url="../../../include/footer.jsp" />
+	<c:import url="../../../../include/footer.jsp" />
 
 </body>
 

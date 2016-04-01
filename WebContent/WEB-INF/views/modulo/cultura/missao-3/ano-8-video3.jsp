@@ -35,8 +35,13 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-						<a href="#" class="list-group-item ">Missão 2</a>
-					</div>
+							<a href="<c:url value='/cultura/missao-3/ano-8' />"
+							class="list-group-item ">Travessia - Maio 2015 - Depoimento de bolsista do Ismart</a>
+						<a href="<c:url value='/cultura/missao-3/ano-8/video-2' />"
+							class="list-group-item ">Travessia - Maio 2015 - Missão 3</a> <a
+							href="<c:url value='/cultura/missao-3/ano-8/video-3' />"
+							class="list-group-item ">Travessia - Maio 2015 - Vença seus obstáculos</a>
+						</div>
 				</div>
 				<div class="row" id="acoes">
 					<div class="title">
@@ -44,7 +49,7 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-						<a href="<c:url value='/cultura/missao-2/ano-9/entrega' />"
+						<a href="<c:url value='/cultura/missao-3/ano-8/entrega' />"
 							class="list-group-item ">Entrega</a> <a href="#"
 							class="list-group-item ">Resultado</a> <a href="#"
 							class="list-group-item ">Fórum</a>
@@ -65,21 +70,24 @@
 					<div class="col-sm-9 text-center wow fadeInUp content-center"
 						data-wow-delay=".2s">
 						<div class="thumbnail">
-							<iframe src="https://player.vimeo.com/video/126189362"
-								width="500" height="281" frameborder="0" webkitallowfullscreen
-								mozallowfullscreen allowfullscreen></iframe>
+							<iframe src="https://player.vimeo.com/video/127041008" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							
-
 							<div class="caption">
-								<p>Missão 2</p>
+								<h4>Travessia - Maio 2015 - Vença seus obstáculos</h4>
+								<p>Missão 3</p>
+								<div class="btn-group">
+
+									<a href="<c:url value='/cultura/missao-3/ano-8/video-2' />"
+										class="btn btn-primary"> << Anterior </a>
+								</div>
 								<div class="btn-group ">
 									<a
-										href="${pageContext.request.contextPath}/resources/doc/missao2_9.pdf"
+										href="${pageContext.request.contextPath}/resources/doc/missao3_8.pdf"
 										class="btn btn-primary"> <img
 										src="${pageContext.request.contextPath}/resources/img/pdf-icon.png"
 										height="20px" width="20px" />
 									</a> <a
-										href="${pageContext.request.contextPath}/resources/doc/missao2_9.doc"
+										href="${pageContext.request.contextPath}/resources/doc/missao3_8.doc"
 										class="btn btn-primary"> <img
 										src="${pageContext.request.contextPath}/resources/img/word-icon.jpg"
 										height="20px" width="20px" />

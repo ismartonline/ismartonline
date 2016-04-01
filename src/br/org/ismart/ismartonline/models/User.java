@@ -1,3 +1,4 @@
+
 package br.org.ismart.ismartonline.models;
 
 import java.util.ArrayList;
@@ -30,8 +31,9 @@ public class User implements UserDetails {
 	private String ismartId;
 	private String geekieId;
 	
-	//@OneToMany(fetch = FetchType.EAGER)
-	//private List<Mission> missions;
+	
+	@OneToMany(mappedBy="user")
+	private List<StudentMission> missions;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Role> roles = new ArrayList<>();

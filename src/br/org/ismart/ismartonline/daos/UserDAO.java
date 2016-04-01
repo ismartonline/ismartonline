@@ -43,4 +43,9 @@ public class UserDAO  {
 		return em.createQuery("select u from User u where u.login like 'mentorismart%' ", User.class).getResultList();
 	}
 
+	public User getUserByIsmartId(String ismartId) {
+		return em.createQuery("select u from User u where u.ismarId = :ismartId ", User.class).setParameter("ismartId", ismartId).getSingleResult();
+		
+	}
+
 }

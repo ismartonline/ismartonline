@@ -71,6 +71,21 @@
 								
 								</div>
 							</div>
+							
+							<div class="col-sm-4 text-center wow fadeInUp" data-wow-delay=".2s">
+								<div class="thumbnail">
+									<div class="caption">
+										<p>Missão 3</p>
+										<div class="btn-group">
+										
+											<a href="<c:url value='/cultura/missao-3/ano-${user.ano}'/>" class="btn btn-primary">
+												Ir para Missão
+											</a>
+										</div>
+									</div>
+								
+								</div>
+							</div>
 							<!-- e um produto -->
 						
 							
