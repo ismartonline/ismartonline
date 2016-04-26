@@ -21,6 +21,10 @@
 		
            	<div class="intro-message">
            	
+           		<div class="title">
+					<h3>Painel de Controle</h3>
+				</div>
+				
 				
 			
 				<div class="row">
@@ -32,9 +36,9 @@
 							</div>
 							<!-- menu de categorias -->
 							<div class="list-group ">
-								<a href="<c:url value='/cultura/missao/ano-1' />" class="list-group-item ">Avaliar Missões 8 ano</a>
-								<a href="#" class="list-group-item ">Avaliar Missões 9 ano</a>
-								<a href="#" class="list-group-item ">Avaliar Missões 1 ano</a>
+								<a href="<c:url value='/admin/avaliacao/ano-8' />" class="list-group-item ">Avaliar Missões 8 ano</a>
+								<a href="<c:url value='/admin/avaliacao/ano-9' />" class="list-group-item ">Avaliar Missões 9 ano</a>
+								<a href="<c:url value='/admin/avaliacao/ano-1' />" class="list-group-item ">Avaliar Missões 1 ano</a>
 								
 							</div>
 					</div>

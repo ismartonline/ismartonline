@@ -45,8 +45,10 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-						<a href="<c:url value='/cultura/missao-2/ano-1/entrega' />" class="list-group-item ">Entrega</a> <a href="#"
-							class="list-group-item ">Resultado</a> <a href="#"
+						<a href="<c:url value='/cultura/missao-2/ano-1/entrega' />"
+							class="list-group-item ">Entrega</a>
+							<a href="<c:url value='/cultura/missao/resultado' />"	class="list-group-item ">Resultado</a> 
+							<a href="#"
 							class="list-group-item ">Fórum</a>
 					</div>
 				</div>
@@ -65,19 +67,26 @@
 					<div class="col-lg-7 text-center wow fadeInUp content-center"
 						data-wow-delay=".2s">
 						<div class="thumbnail">
-							
-							<form:form action="${pageContext.request.contextPath}/entrega-missao-2/submit" method="post" commandName="deliver" enctype="multipart/form-data">
-								
-									<p style="color: black" id="fileName"></p>
-								
-									<label for="delivery"> <span class="btn btn-success btn-block">Selecione o arquivo</span></label>
-									<input type="file" name="delivery" id="delivery" 	style="visibility: hidden; position: absolute;"/>
-									
-									<form:errors path="deliveryPath"/> 
-								
-									<label for="submitButton"> <span class="btn btn-primary btn-block">Salvar</span></label>
-									<input id="submitButton" name="submit" type="submit" value="Salvar" style="visibility: hidden; position: absolute;">
-									
+
+							<form:form
+								action="${pageContext.request.contextPath}/entrega-missao-2/submit"
+								method="post" commandName="deliver"
+								enctype="multipart/form-data">
+
+								<p style="color: black" id="fileName"></p>
+
+								<label for="delivery"> <span
+									class="btn btn-success btn-block">Selecione o arquivo</span></label>
+								<input type="file" name="delivery" id="delivery"
+									style="visibility: hidden; position: absolute;" />
+
+								<form:errors path="deliveryPath" />
+
+								<label for="submitButton"> <span
+									class="btn btn-primary btn-block">Salvar</span></label>
+								<input id="submitButton" name="submit" type="submit"
+									value="Salvar" style="visibility: hidden; position: absolute;">
+
 							</form:form>
 
 						</div>
@@ -100,28 +109,26 @@
 
 
 	<c:import url="../../../../include/footer.jsp" />
-	
-	<script type="text/javascript">
-	
-	function updated(event) {
-	    var count = 0;
-	    console.log(event.path);
-	    for ( i = 0; i < event.path.length; i++ ) {
-	        var tmpObj = event.path[i];
-	        
-	        if ( tmpObj.value !== undefined ) {
-	        	
-	        	$('#fileName').html(tmpObj.value.substr(12));
-	        	
-	        }
-	    }
-	    
-	}
 
-	var el = document.getElementById('delivery');
-	
-	el.onchange = updated;
-	
+	<script type="text/javascript">
+		function updated(event) {
+			var count = 0;
+			console.log(event.path);
+			for (i = 0; i < event.path.length; i++) {
+				var tmpObj = event.path[i];
+
+				if (tmpObj.value !== undefined) {
+
+					$('#fileName').html(tmpObj.value.substr(12));
+
+				}
+			}
+
+		}
+
+		var el = document.getElementById('delivery');
+
+		el.onchange = updated;
 	</script>
 
 </body>

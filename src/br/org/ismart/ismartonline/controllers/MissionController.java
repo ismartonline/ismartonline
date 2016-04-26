@@ -1,6 +1,7 @@
 package br.org.ismart.ismartonline.controllers;
 
 import java.io.File;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.org.ismart.ismartonline.daos.MissionDAO;
+import br.org.ismart.ismartonline.models.StudentMission;
 import br.org.ismart.ismartonline.models.User;
 import br.org.ismart.ismartonline.tools.FileManager;
 
@@ -19,7 +22,23 @@ public class MissionController {
 	
 	@Autowired
 	private FileManager fileSaver;
+	
+	@Autowired
+	private MissionDAO missionDAO;
 
+	@RequestMapping("/cultura/missao/resultado")
+	public ModelAndView resultado(HttpSession session){
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao/result");
+		
+		SecurityContextImpl context = (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
+		User user = (User) context.getAuthentication().getPrincipal();
+		
+		List<StudentMission> missions = missionDAO.listStudentMissions(user);
+		
+		model.addObject("missions", missions);
+		return model;
+	}
 	
 	@RequestMapping("/cultura/missao/ano-1/entrega")
 	public ModelAndView entregaAno1(){

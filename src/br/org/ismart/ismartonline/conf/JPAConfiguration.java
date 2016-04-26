@@ -48,6 +48,7 @@ public class JPAConfiguration
       String hostname = System.getProperty("RDS_HOSTNAME");
       String port = System.getProperty("RDS_PORT");
       
+//      
       String jdbcUrl = "jdbc:mysql://" + hostname + ":" +
         port + "/" + dbName ;
       dataSource.setUrl(jdbcUrl);

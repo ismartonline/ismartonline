@@ -1,6 +1,8 @@
 package br.org.ismart.ismartonline.controllers;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.org.ismart.ismartonline.daos.MissionDAO;
 import br.org.ismart.ismartonline.daos.UserDAO;
 import br.org.ismart.ismartonline.daos.VideoDAO;
 import br.org.ismart.ismartonline.models.GeekieStudent;
 import br.org.ismart.ismartonline.models.Mission;
+import br.org.ismart.ismartonline.models.StudentMission;
 import br.org.ismart.ismartonline.models.User;
-import br.org.ismart.ismartonline.models.Video;
 import br.org.ismart.ismartonline.services.GeekieLab;
 import br.org.ismart.ismartonline.tools.AwsFileManager;
 import br.org.ismart.ismartonline.tools.FileManager;
@@ -32,6 +35,9 @@ public class PanicController {
 
 	@Autowired
 	private VideoDAO videoDao;
+
+	@Autowired
+	private MissionDAO missionDao;
 
 	public static void main(String[] args) {
 		new PanicController().insertStudentsMissions();
@@ -57,16 +63,34 @@ public class PanicController {
 
 		list = fileManager.list("deliveries/ano-9/missao-2/");
 		saveItemsFromlist(list);
+//		
+
+		 list = fileManager.list("deliveries/ano-1/missao-3/");
+		saveItemsFromlist(list);
+		
+
+		list = fileManager.list("deliveries/ano-9/missao-3/");
+		saveItemsFromlist(list);
+		
+
+		list = fileManager.list("deliveries/ano-8/missao-3/");
+		saveItemsFromlist(list);
 
 	}
 
-	private void saveItemsFromlist(List<AwsFileMiniModel> list) {
+	private void saveItemsFromlist(List<AwsFileMiniModel> list)  {
 
 		for (AwsFileMiniModel awsFileMiniModel : list) {
 
+			
 			String key = awsFileMiniModel.getKey();
+			String year = key.substring(15, 16);
+			String number = key.substring(24, 25);
+			String fileName = key.substring(26);
+			
+					
 			if (key.length() < 27) {
-				saveMission(key);
+				//saveMission(key, year, number);
 				continue;
 			}
 
@@ -77,28 +101,47 @@ public class PanicController {
 
 			System.out.println(ismartId);
 
-			// User student = dao.getUserByIsmartId(ismartId);
+			User student = dao.getUserByIsmartId(ismartId);
+			System.err.println(year + "-" + number);
+			Mission mission = missionDao.finbMissionByYearAndNumber(Long.valueOf(year), Long.valueOf(number));
 
-			// StudentMission = new StudentMission(student);
+			//(Calendar deliveryDate, String fileLink, Mission mission, User user) {
+			
+			//https://s3-sa-east-1.amazonaws.com/elasticbeanstalk-sa-east-1-174765381476/deliveries/ano-1/missao-1/16_Miss%C3%A3o_1_1EM_Franciele+Maria+de+Fatima+Amancio.docx
+			try {
+				String urlEncoded = java.net.URLEncoder.encode(key, "UTF-8");
+				String link = "https://s3-sa-east-1.amazonaws.com/elasticbeanstalk-sa-east-1-174765381476/"+urlEncoded;
+				System.out.println(link);
+				StudentMission sm = new StudentMission(awsFileMiniModel.getLastModifiedAsCalendar(), link, mission, student, fileName);
+				
+				missionDao.saveStudentMission(sm);
+				
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 		}
 
 	}
 
-	private void saveMission(String key) {
+	private Mission saveMission(String key, String year, String number) {
 		System.out.println(key);
-
-		String year = key.substring(15, 16);
-		String number = key.substring(24, 25);
 
 		System.out.println("Ano : " + year);
 		System.out.println("Missao : " + number);
 
-		Mission mission = new Mission(year, number, "Missão " + year,
+		//String name, String docFilePath, String pdfFilePath, Long number, Long year) {
+		Mission mission = new Mission("Missão " + number,  
 				"missao" + number + "_" + (year.equals("1") ? year + "em.doc" : year + ".doc"),
-				"missao" + number + "_" + (year.equals("1") ? year + "em.pdf" : year + ".pdf"));
+				"missao" + number + "_" + (year.equals("1") ? year + "em.pdf" : year + ".pdf"),
+				Long.valueOf(number), Long.valueOf(year));
+		
+		missionDao.save(mission);
+		
+		return missionDao.findById(mission.getId());
 
-		List<String> videos = saveVideos(getMissionVideos(key), mission);
+		//SList<String> videos = saveVideos(getMissionVideos(key), mission);
 
 	}
 

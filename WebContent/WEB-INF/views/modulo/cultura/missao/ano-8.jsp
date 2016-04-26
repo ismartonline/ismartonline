@@ -16,7 +16,7 @@
 		
 		<div class="container-fluid intro-header">
 		
-		<div class="title">
+			<div class="title">
 				<h5>Módulo de Cultura</h5>
 			</div>
 		
@@ -46,7 +46,7 @@
 							<!-- menu de categorias -->
 							<div class="list-group ">
 								<a href="<c:url value='/cultura/missao/ano-8/entrega' />" class="list-group-item ">Entrega</a>
-								<a href="#" class="list-group-item ">Resultado</a>
+								<a href="<c:url value='/cultura/missao/resultado' />"	class="list-group-item ">Resultado</a> 
 								<a href="#" class="list-group-item ">Fórum</a>
 							</div>
 					</div>

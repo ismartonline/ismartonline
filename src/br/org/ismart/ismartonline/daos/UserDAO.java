@@ -44,7 +44,7 @@ public class UserDAO  {
 	}
 
 	public User getUserByIsmartId(String ismartId) {
-		return em.createQuery("select u from User u where u.ismarId = :ismartId ", User.class).setParameter("ismartId", ismartId).getSingleResult();
+		return em.createQuery("select u from User u where u.ismartId = :ismartId ", User.class).setParameter("ismartId", ismartId).getSingleResult();
 		
 	}
 

@@ -45,8 +45,9 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-						<a href="<c:url value='/cultura/missao-2/ano-1/entrega' />" class="list-group-item ">Entrega</a> <a href="#"
-							class="list-group-item ">Resultado</a> <a href="#"
+						<a href="<c:url value='/cultura/missao-2/ano-1/entrega' />" class="list-group-item ">Entrega</a> 
+						<a href="<c:url value='/cultura/missao/resultado' />"	class="list-group-item ">Resultado</a> 
+							<a href="#"
 							class="list-group-item ">Fórum</a>
 					</div>
 				</div>

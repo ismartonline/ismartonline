@@ -35,7 +35,7 @@
 	                            </li>
 	                            
 	                            <li>
-	                                <a href="<c:url value='/desempenho'/>" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Desempenho</span></a>
+	                                <a href="<c:url value='/cultura/missao/resultado' />" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Desempenho</span></a>
 	                            </li>
 	                            
 	                            <li>
