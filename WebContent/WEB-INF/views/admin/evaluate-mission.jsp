@@ -38,15 +38,22 @@
                  }
              
              function atualizaPontuacao(ismartId, valor, checked) {
-            	 	var val = parseFloat( $('#grade-'+ ismartId).val());
-            	 	console.log(checked);
-            	 	if (isNaN(val)) val = 0;
-            	 	if(checked){
-            	 		val += valor;
-            	 	} else {
-            	 		val -= valor;
+            	 
+            	 if ($('#updateGrade')[0].checked){
+	            		var val = parseFloat( $('#grade-'+ ismartId).val());
+	             	 	console.log(checked);
+	             	 	
+	             	 	if (isNaN(val)) val = 0;
+	             	 	
+	             	 	if(checked){
+	             	 		val += valor;
+	             	 	} else {
+	             	 		val -= valor;
+	             	 	}
+	             	 	
+	             	 	$('#grade-'+ ismartId).val(val); 
             	 	}
-            	 	$('#grade-'+ ismartId).val(val);
+            	 	
                  }
 </script>
 
@@ -85,8 +92,11 @@
 		
 		<div class="title">
 			<h1 style="color: blue">Avaliando missão ${missionNumber} - Ano ${year} </h1>
+			
+			<label for="updateGrade" style="color: black "> Atualizar notas automaticamente</label>
+			<input type="checkbox" checked id="updateGrade" />
 		</div>
-	
+			
 		<div class="row">
 			
 			<!-- bloco conteudo -->

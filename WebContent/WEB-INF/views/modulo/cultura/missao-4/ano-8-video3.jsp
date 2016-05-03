@@ -36,11 +36,11 @@
 					<!-- menu de categorias -->
 					<div class="list-group ">
 							<a href="<c:url value='/cultura/missao-4/ano-8' />"
-							class="list-group-item ">Travessia - Maio 2015 - Vença seus obstáculos</a>
+							class="list-group-item ">Travessia - Vença seus obstáculos</a>
 						<a href="<c:url value='/cultura/missao-4/ano-8/video-2' />"
-							class="list-group-item ">Testes - Junho 2015 - Depoimento de bolsista do Ismart</a> <a
+							class="list-group-item ">Testes - Depoimento de bolsista do Ismart</a> <a
 							href="<c:url value='/cultura/missao-4/ano-8/video-3' />"
-							class="list-group-item ">Testes - Junho 2015 - Missão 4</a>
+							class="list-group-item ">Testes - Missão 4</a>
 						</div>
 				</div>
 				<div class="row" id="acoes">
@@ -74,7 +74,7 @@
 							<iframe src="https://player.vimeo.com/video/130151493" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							
 							<div class="caption">
-								<h4>Testes - Junho 2015 - Missão 4</h4>
+								<h4>Testes - Missão 4</h4>
 								<p>Missão 4</p>
 								<div class="btn-group">
 

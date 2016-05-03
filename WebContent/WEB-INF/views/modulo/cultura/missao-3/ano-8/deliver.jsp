@@ -35,13 +35,15 @@
 					</div>
 					<!-- menu de categorias -->
 					<div class="list-group ">
-							<a href="<c:url value='/cultura/missao-3/ano-8' />"
-							class="list-group-item ">Travessia - Maio 2015 - Depoimento de bolsista do Ismart</a>
-						<a href="<c:url value='/cultura/missao-3/ano-8/video-2' />"
-							class="list-group-item ">Travessia - Maio 2015 - Missão 3</a> <a
+						<a href="<c:url value='/cultura/missao-3/ano-8' />"
+							class="list-group-item ">Travessia - Depoimento
+							de bolsista do Ismart</a> <a
+							href="<c:url value='/cultura/missao-3/ano-8/video-2' />"
+							class="list-group-item ">Travessia - Missão 3</a> <a
 							href="<c:url value='/cultura/missao-3/ano-8/video-3' />"
-							class="list-group-item ">Travessia - Maio 2015 - Vença seus obstáculos</a>
-						</div>
+							class="list-group-item ">Travessia - Vença seus
+							obstáculos</a>
+					</div>
 				</div>
 				<div class="row" id="acoes">
 					<div class="title">
