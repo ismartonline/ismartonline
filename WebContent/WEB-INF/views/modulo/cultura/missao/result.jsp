@@ -35,10 +35,18 @@
 		</div>
 
 
-		<div class="row">
+		<div class="row" >
+			
+			<div class="col-sm-12" align="center">
+				
+					<a href="${pageContext.request.contextPath}/resources/doc/missao_pontuacao.pdf" target="_blank" class="btn btn-primary">
+						Entenda a Pontuação
+						<img src="${pageContext.request.contextPath}/resources/img/pdf-icon.png" height="20px" width="20px"/>
+					</a>
+			</div>
 			
 			<!-- bloco conteudo -->
-			<div class="col-sm-9">
+			<div class="col-sm-12" align="center">
 				<div class="row">
 						<div class="wow fadeInUp" data-wow-delay=".2s">
 							<div class="thumbnail" style="">

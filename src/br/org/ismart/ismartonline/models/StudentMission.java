@@ -44,6 +44,10 @@ public class StudentMission {
 	@ManyToOne
 	private User user;
 
+	private int valued;
+
+	private int lateDelivery;
+
 	public StudentMission(Calendar deliveryDate, String fileLink, Mission mission, User user, String fileName) {
 		super();
 		this.deliveryDate = deliveryDate;
@@ -51,10 +55,40 @@ public class StudentMission {
 		this.mission = mission;
 		this.user = user;
 		this.fileName = fileName;
+		
+		this.grade = -1.0;
+		
+		this.deliveryIn = 0;
+		this.deliveryOut = 0;
+		
+		this.lateDelivery = 0;
+		
+		this.videoNoiseless = 0;
+		this.videoTimeOk = 0;
+		
+		this.assayCharsRespect = 0;
+		this.assayParagraphsDivision = 0;
+		
+		this.audioNoiseless = 0;
+		this.audioClearTalk = 0;
+		
+		this.sheetAndReportFormatting = 0;
+		this.sheetInfoOrganization = 0;
+		
+		this.valued = 0;
 	}
 
 	public StudentMission() {
 		// TODO Auto-generated constructor stub
+	}
+
+	
+	public int getValued() {
+		return valued;
+	}
+
+	public void setValued(int valued) {
+		this.valued = valued;
 	}
 
 	public Long getId() {
@@ -193,7 +227,13 @@ public class StudentMission {
 		this.sheetInfoOrganization = sheetInfoOrganization;
 	}
 
-		
-	
+	public int getLateDelivery() {
+		return lateDelivery;
+	}
+
+	public void setLateDelivery(int lateDelivery) {
+		this.lateDelivery = lateDelivery;
+	}
+
 	
 }

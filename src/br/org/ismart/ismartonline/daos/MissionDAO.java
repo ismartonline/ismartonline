@@ -34,14 +34,36 @@ public class MissionDAO {
 		return entityManager.createQuery(stringBuilder.toString()).setParameter("number", number)
 				.setParameter("year", year).getResultList();
 	}
+	
+	public List<StudentMission> finbByYearNumberAndStudent(Long year, Long number, User user) {
+
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append(" select sm ");
+		stringBuilder.append("	from StudentMission sm");
+		stringBuilder.append("	where sm.mission.number = :number and sm.mission.year = :year and sm.user = :user");
+		
+		System.out.println("NUMBER: " + number);
+		System.out.println("YEAR: " + year);
+		System.out.println("USER: " + user.getLogin() + " - " + user.getIsmartId())  ;
+
+		return entityManager.createQuery(stringBuilder.toString(), StudentMission.class)
+				.setParameter("number", number)
+				.setParameter("year", year)
+				.setParameter("user", user)
+				.getResultList();
+	}
 
 	public StudentMission findStudentMissionById(Long id) {
 		return entityManager.find(StudentMission.class, id);
 	}
 
-	public void saveStudentMission(StudentMission sm1) {
-		entityManager.merge(sm1);
+	public void updateStudentMission(StudentMission studentMission) {
+		entityManager.merge(studentMission);
 		
+	}
+	
+	public void saveStudentMission(StudentMission studentMission){
+		entityManager.persist(studentMission);
 	}
 
 	public void save(Mission mission) {

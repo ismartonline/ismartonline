@@ -21,7 +21,7 @@ public class EvaluateController {
 
 	@RequestMapping("/evaluate")
 	public ModelAndView avaliacaoAnoMissaoAvaliar(Long year, Long missionNumber, Long id, Double grade,
-			int deliveryOut, int deliveryIn, int videoNoiseless, int videoTimeOk,
+			int deliveryOut, int deliveryIn, int lateDelivery, int videoNoiseless, int videoTimeOk,
 			int assayCharsRespect, int assayParagraphsDivision, int audioNoiseless, int audioClearTalk,
 			int sheetAndReportFormatting, int sheetInfoOrganization) {
 
@@ -30,6 +30,8 @@ public class EvaluateController {
 
 		sm1.setDeliveryIn(deliveryIn);
 		sm1.setDeliveryOut(deliveryOut);
+		
+		sm1.setLateDelivery(lateDelivery);
 
 		sm1.setVideoNoiseless(videoNoiseless);
 		sm1.setVideoTimeOk(videoTimeOk);
@@ -42,8 +44,10 @@ public class EvaluateController {
 
 		sm1.setSheetAndReportFormatting(sheetAndReportFormatting);
 		sm1.setSheetInfoOrganization(sheetInfoOrganization);
+		
+		sm1.setValued(1);
 
-		missionDao.saveStudentMission(sm1);
+		missionDao.updateStudentMission(sm1);
 
 		ModelAndView model = new ModelAndView("admin/evaluate-mission");
 

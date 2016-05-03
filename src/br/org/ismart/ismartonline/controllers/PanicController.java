@@ -112,9 +112,13 @@ public class PanicController {
 				String urlEncoded = java.net.URLEncoder.encode(key, "UTF-8");
 				String link = "https://s3-sa-east-1.amazonaws.com/elasticbeanstalk-sa-east-1-174765381476/"+urlEncoded;
 				System.out.println(link);
+				
+				if (! missionDao.finbByYearNumberAndStudent(Long.valueOf(year), Long.valueOf(number), student).isEmpty())
+						continue;
+				
 				StudentMission sm = new StudentMission(awsFileMiniModel.getLastModifiedAsCalendar(), link, mission, student, fileName);
 				
-				missionDao.saveStudentMission(sm);
+				missionDao.updateStudentMission(sm);
 				
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block

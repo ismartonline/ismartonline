@@ -1,6 +1,8 @@
 package br.org.ismart.ismartonline.controllers;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,8 +20,11 @@ import br.org.ismart.ismartonline.models.StudentMission;
 import br.org.ismart.ismartonline.models.User;
 import br.org.ismart.ismartonline.tools.FileManager;
 
+@Transactional
 @Controller
 public class MissionController {
+	
+	private static final String AWS_S3_BASE_URL = "https://s3-sa-east-1.amazonaws.com/elasticbeanstalk-sa-east-1-174765381476/";
 	
 	@Autowired
 	private FileManager fileSaver;
@@ -112,6 +118,30 @@ public class MissionController {
 		return model;
 	}
 	
+	@RequestMapping("/cultura/missao-4/ano-1/entrega")
+	public ModelAndView entregaMissao4Ano1(){
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-4/ano-1/deliver");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-4/ano-8/entrega")
+	public ModelAndView entregaMissao4Ano8(){
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-4/ano-8/deliver");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-4/ano-9/entrega")
+	public ModelAndView entregaMissao4Ano9(){
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-4/ano-9/deliver");
+		
+		return model;
+	}
+	
 	@RequestMapping("/entrega/submit")
 	public ModelAndView submit(MultipartFile delivery, HttpSession session){
 		
@@ -126,10 +156,22 @@ public class MissionController {
 		
 		File file = new File(webPath);
 		
-		model.addObject("webPath", webPath);
-		model.addObject("file", file);
-		
-		System.out.println("WEBPATH " + webPath);
+		String urlEncoded;
+		try {
+			urlEncoded = java.net.URLEncoder.encode(webPath, "UTF-8");
+			String link = AWS_S3_BASE_URL+urlEncoded;
+			StudentMission studentMission = new StudentMission(Calendar.getInstance(), link, missionDAO.finbMissionByYearAndNumber(Long.valueOf(user.getAno()), 1L), user, fileName);
+			missionDAO.saveStudentMission(studentMission);
+			
+			model.addObject("webPath", webPath);
+			model.addObject("file", file);
+			
+			System.out.println("WEBPATH " + webPath);
+			
+			
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		
 		return model;
 	}
@@ -148,10 +190,22 @@ public class MissionController {
 		
 		File file = new File(webPath);
 		
-		model.addObject("webPath", webPath);
-		model.addObject("file", file);
-		
-		System.out.println("WEBPATH " + webPath);
+		String urlEncoded;
+		try {
+			urlEncoded = java.net.URLEncoder.encode(webPath, "UTF-8");
+			String link = AWS_S3_BASE_URL+urlEncoded;
+			StudentMission studentMission = new StudentMission(Calendar.getInstance(), link, missionDAO.finbMissionByYearAndNumber(Long.valueOf(user.getAno()), 2L), user, fileName);
+			missionDAO.saveStudentMission(studentMission);
+			
+			model.addObject("webPath", webPath);
+			model.addObject("file", file);
+			
+			System.out.println("WEBPATH " + webPath);
+			
+			
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		
 		return model;
 	}
@@ -170,10 +224,55 @@ public class MissionController {
 		
 		File file = new File(webPath);
 		
-		model.addObject("webPath", webPath);
-		model.addObject("file", file);
+		String urlEncoded;
+		try {
+			urlEncoded = java.net.URLEncoder.encode(webPath, "UTF-8");
+			String link = AWS_S3_BASE_URL+urlEncoded;
+			StudentMission studentMission = new StudentMission(Calendar.getInstance(), link, missionDAO.finbMissionByYearAndNumber(Long.valueOf(user.getAno()), 3L), user, fileName);
+			missionDAO.saveStudentMission(studentMission);
+			
+			model.addObject("webPath", webPath);
+			model.addObject("file", file);
+			
+			System.out.println("WEBPATH " + webPath);
+			
+			
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return model;
+	}
+	
+	@RequestMapping("/entrega-missao-4/submit")
+	public ModelAndView mission4Submit(MultipartFile delivery, HttpSession session){
 		
-		System.out.println("WEBPATH " + webPath);
+		SecurityContextImpl context = (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
+		User user = (User) context.getAuthentication().getPrincipal();
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-4/ano-"+user.getAno()+"/delivered");
+		
+		String fileName = user.getIsmartId() + "_" + delivery.getOriginalFilename();
+		
+		String webPath = fileSaver.write("deliveries/ano-"+user.getAno()+"/missao-4", delivery, fileName);
+		
+		File file = new File(webPath);
+		
+		String urlEncoded;
+		try {
+			urlEncoded = java.net.URLEncoder.encode(webPath, "UTF-8");
+			String link = AWS_S3_BASE_URL+urlEncoded;
+			StudentMission studentMission = new StudentMission(Calendar.getInstance(), link, missionDAO.finbMissionByYearAndNumber(Long.valueOf(user.getAno()), 4L), user, fileName);
+			missionDAO.saveStudentMission(studentMission);
+			
+			model.addObject("webPath", webPath);
+			model.addObject("file", file);
+			
+			System.out.println("WEBPATH " + webPath);
+			
+			
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		
 		return model;
 	}

@@ -33,16 +33,12 @@
 				<div class="row">
 					
 					<!-- bloco conteudo -->
-					<div class="col-sm-9">
+					<div class="col-sm-12">
 						<!-- novidades -->
-						<div class="row" id="novidades">
-							<div class="col-sm-12 text-center">
-								<h3></h3>
-							</div>
-						</div>
+					
 						<div class="row">
            					<sec:authentication property="principal" var="user"/>
-							<div class="col-sm-4 text-center wow fadeInUp" data-wow-delay=".2s">
+							<div class="col-sm-3 text-center wow fadeInUp" data-wow-delay=".2s">
 								<div class="thumbnail">
 									
 									<div class="caption">
@@ -57,7 +53,7 @@
 								</div>
 							</div>
 							
-							<div class="col-sm-4 text-center wow fadeInUp" data-wow-delay=".2s">
+							<div class="col-sm-3 text-center wow fadeInUp" data-wow-delay=".2s">
 								<div class="thumbnail">
 									<div class="caption">
 										<p>Missão 2</p>
@@ -72,7 +68,7 @@
 								</div>
 							</div>
 							
-							<div class="col-sm-4 text-center wow fadeInUp" data-wow-delay=".2s">
+							<div class="col-sm-3 text-center wow fadeInUp" data-wow-delay=".2s">
 								<div class="thumbnail">
 									<div class="caption">
 										<p>Missão 3</p>
@@ -86,7 +82,21 @@
 								
 								</div>
 							</div>
-							<!-- e um produto -->
+							
+							<div class="col-sm-3 text-center wow fadeInUp" data-wow-delay=".2s">
+								<div class="thumbnail">
+									<div class="caption">
+										<p>Missão 4</p>
+										<div class="btn-group">
+										
+											<a href="<c:url value='/cultura/missao-4/ano-${user.ano}'/>" class="btn btn-primary">
+												Ir para Missão
+											</a>
+										</div>
+									</div>
+								
+								</div>
+							</div>
 						
 							
 						</div><!-- fim dos mais vendidos -->

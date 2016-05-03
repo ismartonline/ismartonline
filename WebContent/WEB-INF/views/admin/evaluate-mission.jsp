@@ -14,14 +14,15 @@
 <body>
 
 <script type="text/javascript">
-             function avaliaMissao(year, missionNumber, id, grade, deliveryOut, deliveryIn, videoNoiseless, videoTimeOk, assayCharsRespect, assayParagraphsDivision, audioNoiseless, audioClearTalk, sheetAndReportFormatting, sheetInfoOrganization, ismartId) {
+             function avaliaMissao(year, missionNumber, id, grade, deliveryOut, deliveryIn, lateDelivery, videoNoiseless, videoTimeOk, assayCharsRespect, assayParagraphsDivision, audioNoiseless, audioClearTalk, sheetAndReportFormatting, sheetInfoOrganization, ismartId) {
                  $.post("${pageContext.request.contextPath}/evaluate", 
                 		 {'year': year, 
                 	 	  'missionNumber': missionNumber, 
                 	 	  'id' : id, 
                 	 	  'grade' : grade,
                 	 	  'deliveryOut' : deliveryOut, 
-						  'deliveryIn' : deliveryIn, 
+						  'deliveryIn' : deliveryIn,
+						  'lateDelivery' : lateDelivery,
 						   'videoNoiseless' : videoNoiseless,
 							'videoTimeOk' : videoTimeOk,
              				'assayCharsRespect' : assayCharsRespect, 
@@ -39,6 +40,7 @@
              function atualizaPontuacao(ismartId, valor, checked) {
             	 	var val = parseFloat( $('#grade-'+ ismartId).val());
             	 	console.log(checked);
+            	 	if (isNaN(val)) val = 0;
             	 	if(checked){
             	 		val += valor;
             	 	} else {
@@ -97,20 +99,22 @@
 								<tr>
 									<td style="background-color: #FFE5CC"><label style="color: black ">Aluno </label></td>
 									
-									<td style="background-color: #FFCCCC"><label style="color: black;">Entrega fora da proposta / não entrega</label></td>
+									<td style="background-color: #FFCCCC"><label style="color: black;">Entrega fora da proposta / não entregue</label></td>
 									<td style="background-color: #FFCCCC"><label style="color: black;">Entrega dentro da proposta</label></td>
 									
+									<td style="background-color: #FFCCCC"><label style="color: black;">Entrega atrasada</label></td>
+									
 									<td style="background-color: #E5FFCC"><label style="color: black;  ">Video: Som sem ruido, imagem nítida</label></td>
-									<td style="background-color: #E5FFCC"><label style="color: black;  ">Video: tempo: respeitar o tempo de duração (tolerância de ~15 segundos)</label></td>
+									<td style="background-color: #E5FFCC"><label style="color: black;  ">Vídeo: tempo: respeitar o tempo de duração</label></td>
 									
 									<td style="background-color: #CCE5FF"><label style="color: black;  ">Redação: Respeitar o número de caracteres</label></td>
 									<td style="background-color: #CCE5FF"><label style="color: black;  ">Redação: Divisão entre parágrafos</label></td>
 									
 									<td style="background-color: #FFFFCC"><label style="color: black;  ">Áudio: Som sem ruido</label></td>
-									<td style="background-color: #FFFFCC"><label style="color: black;  ">Áudio: Conversa (objetivo) clara</label></td>
+									<td style="background-color: #FFFFCC"><label style="color: black;  ">Áudio: conversa (objetiva) clara</label></td>
 
-									<td style="background-color: #E5CCFF"><label style="color: black;  ">Planilhas e Relatórios: Formatação</label></td>
-									<td style="background-color: #E5CCFF"><label style="color: black;  ">Planilhas e Relatórios: Organização das informações</label></td>
+									<td style="background-color: #E5CCFF"><label style="color: black;  ">Planilhas e Relatórios: Qualidade do conteúdo</label></td>
+									<td style="background-color: #E5CCFF"><label style="color: black;  ">Planilhas e Relatórios: Formatação e organização das informações</label></td>
 									
 									<td style="background-color: #E0E0E0"><label style="color: black; ">Pontuação total:</label></td>
 								</tr>
@@ -120,7 +124,7 @@
 									<tr >
 											<td  style="background-color: #FFE5CC">
 												<input type="hidden" value="${mission.id}"/>	
-												<label  style="color: gray; " >${mission.user.ismartId} - ${mission.user.name}</label> 
+												<a href="${mission.fileLink}" target="_blank"> ${mission.user.ismartId} - ${mission.user.name}</a> 
 											</td>
 											
 											<td style="background-color: #FFCCCC">
@@ -137,6 +141,13 @@
 											</c:if>
 											<c:if test="${mission.deliveryIn != null && mission.deliveryIn <= 0}">
 												<td style="background-color: #FFCCCC">	<input type="checkbox"  id="delivery-in-${mission.user.ismartId}" onclick="atualizaPontuacao(${mission.user.ismartId}, 50, $(this)[0].checked);"/> </td>
+											</c:if>
+											
+											<c:if test="${mission.lateDelivery != null && mission.lateDelivery > 0}">
+												<td style="background-color: #FFCCCC">	<input type="checkbox" checked id="lateDelivery-${mission.user.ismartId}" onclick="atualizaPontuacao(${mission.user.ismartId}, 50, $(this)[0].checked);"/> </td>
+											</c:if>
+											<c:if test="${mission.lateDelivery != null && mission.lateDelivery <= 0}">
+												<td style="background-color: #FFCCCC">	<input type="checkbox"  id="lateDelivery-${mission.user.ismartId}" onclick="atualizaPontuacao(${mission.user.ismartId}, 50, $(this)[0].checked);"/> </td>
 											</c:if>
 											
 											<c:if test="${mission.videoNoiseless != null && mission.videoNoiseless > 0}">
@@ -197,7 +208,7 @@
 											
 											
 											
-											<td style="background-color: #E0E0E0">	<input type="text" id="grade-${mission.user.ismartId}" size="5"  style="color: black" value="${mission.grade}"/> </td>
+											<td style="background-color: #E0E0E0">	<input type="text" id="grade-${mission.user.ismartId}" size="6"  style="color: black" value="${mission.valued < 1 ? 'Não Av.' : mission.grade}"/> </td>
 												
 											<td >
 				
@@ -205,6 +216,7 @@
 																		$('#grade-${mission.user.ismartId}').val(), 
 																		$('#delivery-out-${mission.user.ismartId}')[0].checked == true ? 1 : 0, 
 																		$('#delivery-in-${mission.user.ismartId}')[0].checked == true ? 1 : 0,
+																		$('#lateDelivery-${mission.user.ismartId}')[0].checked == true ? 1 : 0,
 																		$('#videoNoiseless-${mission.user.ismartId}')[0].checked == true ? 1 : 0, 
 																		$('#videoTimeOk-${mission.user.ismartId}')[0].checked == true ? 1 : 0,
 																		$('#assayCharsRespect-${mission.user.ismartId}')[0].checked == true ? 1 : 0,
