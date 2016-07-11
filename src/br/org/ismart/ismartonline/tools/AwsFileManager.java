@@ -36,17 +36,6 @@ public class AwsFileManager implements FileManager {
 
 	private static String bucketName = "elasticbeanstalk-sa-east-1-174765381476";
 
-	public static void main(String[] args) {
-
-		new AwsFileManager().list("deliveries/ano-1/missao-1/");
-		new AwsFileManager().list("deliveries/ano-1/missao-2/");
-		new AwsFileManager().list("deliveries/ano-8/missao-1/");
-		new AwsFileManager().list("deliveries/ano-8/missao-2/");
-		new AwsFileManager().list("deliveries/ano-9/missao-1/");
-		new AwsFileManager().list("deliveries/ano-9/missao-2/");
-
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
