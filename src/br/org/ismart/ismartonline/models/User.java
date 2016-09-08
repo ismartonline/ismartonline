@@ -30,7 +30,7 @@ public class User implements UserDetails {
 	private String unidade;
 	private String ismartId;
 	private String geekieId;
-	
+
 	
 	@OneToMany(mappedBy="user")
 	private List<StudentMission> missions;
@@ -122,5 +122,5 @@ public class User implements UserDetails {
 		this.geekieId = geekieId;
 	}
 	
-
+	
 }

@@ -166,6 +166,30 @@ public class MissionController {
 		return model;
 	}
 	
+	@RequestMapping("/cultura/missao-6/ano-1/entrega")
+	public ModelAndView entregaMissao6Ano1(){
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-6/ano-1/deliver");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-6/ano-8/entrega")
+	public ModelAndView entregaMissao6Ano8(){
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-6/ano-8/deliver");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-6/ano-9/entrega")
+	public ModelAndView entregaMissao6Ano9(){
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-6/ano-9/deliver");
+		
+		return model;
+	}
+	
 	@RequestMapping("/entrega/submit")
 	public ModelAndView submit(MultipartFile delivery, HttpSession session){
 		
@@ -320,6 +344,40 @@ public class MissionController {
 			urlEncoded = java.net.URLEncoder.encode(webPath, "UTF-8");
 			String link = AWS_S3_BASE_URL+urlEncoded;
 			StudentMission studentMission = new StudentMission(Calendar.getInstance(), link, missionDAO.finbMissionByYearAndNumber(Long.valueOf(user.getAno()), 5L), user, fileName);
+			missionDAO.saveStudentMission(studentMission);
+			
+			model.addObject("webPath", webPath);
+			model.addObject("file", file);
+			
+			System.out.println("WEBPATH " + webPath);
+			
+			
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		return model;
+	}
+	
+	@RequestMapping("/entrega-missao-6/submit")
+	public ModelAndView mission6Submit(MultipartFile delivery, HttpSession session){
+		
+		SecurityContextImpl context = (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
+		User user = (User) context.getAuthentication().getPrincipal();
+		
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-6/ano-"+user.getAno()+"/delivered");
+		
+		String fileName = user.getIsmartId() + "_" + delivery.getOriginalFilename();
+		
+		String webPath = fileSaver.write("deliveries/ano-"+user.getAno()+"/missao-6", delivery, fileName);
+		
+		File file = new File(webPath);
+		
+		String urlEncoded;
+		try {
+			urlEncoded = java.net.URLEncoder.encode(webPath, "UTF-8");
+			String link = AWS_S3_BASE_URL+urlEncoded;
+			StudentMission studentMission = new StudentMission(Calendar.getInstance(), link, missionDAO.finbMissionByYearAndNumber(Long.valueOf(user.getAno()), 6L), user, fileName);
 			missionDAO.saveStudentMission(studentMission);
 			
 			model.addObject("webPath", webPath);

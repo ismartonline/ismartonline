@@ -119,7 +119,13 @@ table.oauth-sign-process td.val {
 	background-color: #db3955;
 }
 
-.btn-geekie:hover {
+
+.btn-imaginie, .btn-imaginie:hover, .btn-imaginie:focus, .btn-imaginie:active {
+	color: white;
+        background-color: #00cc33;
+}
+
+.btn-geekie:hover, .btn-imaginie:hover {
 	font-weight: bold;
 }
 

@@ -13,11 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 import br.org.ismart.ismartonline.models.User;
 import br.org.ismart.ismartonline.services.GeekieClient;
 import br.org.ismart.ismartonline.services.GeekieLab;
-import br.org.ismart.ismartonline.services.GoogleClassroomClient;
+import br.org.ismart.ismartonline.services.ImaginieLogin;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class ModuloController {
-	
+    
 	@Autowired
 	private GeekieLab geekieLab;
 	
@@ -28,6 +29,54 @@ public class ModuloController {
 	public ModelAndView cultura(){
 		
 		ModelAndView model = new ModelAndView("modulo/cultura");
+		
+		return model;
+	}
+	@RequestMapping("/cultura/missao-6/ano-8")
+	public ModelAndView missao6Ano8(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-6/ano-8");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-6/ano-8/video-2")
+	public ModelAndView missao6Ano8Video2(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-6/ano-8-video2");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-6/ano-8/video-3")
+	public ModelAndView missao6Ano8Video3(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-6/ano-8-video3");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-6/ano-9")
+	public ModelAndView missao6Ano9(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-6/ano-9");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-6/ano-1")
+	public ModelAndView missao6Ano1(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-6/ano-1");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-6/ano-1/video-2")
+	public ModelAndView missao6Ano1Video2(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-6/ano-1-video2");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-6/ano-1/video-3")
+	public ModelAndView missao6Ano1Video3(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-6/ano-1-video3");
 		
 		return model;
 	}
@@ -303,7 +352,26 @@ public class ModuloController {
 		
 		return model;
 	}
-	
+        
+	@RequestMapping("/materias/imaginie")
+	public ModelAndView materiasImaginie(HttpSession session, HttpServletResponse httpServletResponse)
+        {
+
+            SecurityContextImpl context = (SecurityContextImpl) session.getAttribute("SPRING_SECURITY_CONTEXT");
+            User user = (User) context.getAuthentication().getPrincipal();
+            
+            ImaginieLogin imaginieLogin = new ImaginieLogin(user);
+            String requestURL = imaginieLogin.connect();
+            
+            if(requestURL != null){
+                return new ModelAndView("redirect:" + requestURL);
+            } else 
+            {
+                return new ModelAndView("404");
+            }           
+            
+        }
+        
 	private String getRandomString() {
 		char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
 		StringBuilder sb = new StringBuilder();
@@ -326,5 +394,4 @@ public class ModuloController {
 //	public String interacao(){
 //		return "modulo/interacao";
 //	}
-
 }
