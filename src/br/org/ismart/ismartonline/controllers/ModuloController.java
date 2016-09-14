@@ -32,6 +32,56 @@ public class ModuloController {
 		
 		return model;
 	}
+        
+	@RequestMapping("/cultura/missao-7/ano-8")
+	public ModelAndView missao7Ano8(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-7/ano-8");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-7/ano-8/video-2")
+	public ModelAndView missao7Ano8Video2(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-7/ano-8-video2");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-7/ano-8/video-3")
+	public ModelAndView missao7Ano8Video3(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-7/ano-8-video3");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-7/ano-9")
+	public ModelAndView missao7Ano9(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-7/ano-9");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-7/ano-1")
+	public ModelAndView missao7Ano1(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-7/ano-1");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-7/ano-1/video-2")
+	public ModelAndView missao7Ano1Video2(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-7/ano-1-video2");
+		
+		return model;
+	}
+	
+	@RequestMapping("/cultura/missao-7/ano-1/video-3")
+	public ModelAndView missao7Ano1Video3(String missao){
+		ModelAndView model = new ModelAndView("modulo/cultura/missao-7/ano-1-video3");
+		
+		return model;
+	}
+        
 	@RequestMapping("/cultura/missao-6/ano-8")
 	public ModelAndView missao6Ano8(String missao){
 		ModelAndView model = new ModelAndView("modulo/cultura/missao-6/ano-8");
