@@ -7,12 +7,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.org.ismart.ismartonline.daos.MissionDAO;
+import br.org.ismart.ismartonline.daos.NotificationDAO;
 import br.org.ismart.ismartonline.models.Mission;
+import br.org.ismart.ismartonline.models.Notification;
 import br.org.ismart.ismartonline.models.StudentMission;
+import java.util.Date;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 @RequestMapping("/admin")
@@ -21,6 +24,9 @@ public class AdminController {
 
 	@Autowired
 	private MissionDAO missionDao;
+
+	@Autowired
+	private NotificationDAO notificationDao;
 
 	@RequestMapping
 	public String home() {
@@ -61,5 +67,33 @@ public class AdminController {
 		return model;
 
 	}
-
+        
+        @RequestMapping("/notificacao")
+        public ModelAndView notificacao(){
+            ModelAndView model = new ModelAndView("admin/notification-list");
+           
+            List<Notification> notifications = notificationDao.findAll();
+            model.addObject("notifications", notifications);
+            return model;
+        }
+        
+        @RequestMapping("/notificacao/cadastro")
+        public ModelAndView notificacaoCadastro(){
+            ModelAndView model = new ModelAndView("admin/notification-form");
+           
+            Notification notificationForm = new Notification();    
+            model.addObject("notificationForm", notificationForm);
+            return model;
+        }
+        
+        @RequestMapping("/notificacao/cadastro/submit")
+        public ModelAndView notificacaoCadastroSubmit(@ModelAttribute("notificationForm") Notification notification){
+            
+            notification.setDate(new Date());
+            notificationDao.save(notification);
+            
+           
+            return new ModelAndView("redirect: /notificacao/cadastro");
+        }
+        
 }

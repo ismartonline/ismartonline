@@ -31,21 +31,12 @@
 		<div class="row">
 			<div class="col-sm-3">
 
-				<div class="row" id="acoes">
-					<div class="title">
-						<h3>Ações</h3>
-					</div>
-					<!-- menu de categorias -->
-					<div class="list-group ">
-						<a href="<c:url value='/admin/avaliacao/ano-8' />"
-							class="list-group-item ">Avaliar Missões 8 ano</a> <a
-							href="<c:url value='/admin/avaliacao/ano-9' />"
-							class="list-group-item ">Avaliar Missões 9 ano</a> <a
-							href="<c:url value='/admin/avaliacao/ano-1' />"
-							class="list-group-item ">Avaliar Missões 1 ano</a>
-
-					</div>
-				</div>
+                                <div class="row" id="acoes">
+                                    <div class="title">
+                                            <h3>Ações</h3>
+                                    </div>
+                                    <c:import url="admin-menu.jsp" />   
+                                </div>
 			</div>
 
 			<!-- bloco conteudo -->

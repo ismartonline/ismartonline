@@ -27,7 +27,33 @@
             		<a class="navbar-brand header-line topnav"  href="#">|</a>
 	            	<a class="navbar-brand header-line topnav" href="<c:url value='/admin'/>" >Painel de Controle</a>
             	</sec:authorize>
-            	
+                        
+                <a class="navbar-brand header-line topnav"  href="#">|</a>
+                <div class="navbar-brand header-line topnav dropdown btnNotification">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Mensagens
+                        <span class="notification-bubble">2</span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li>
+                          <h4>Título da notificação</h4>
+                          <p>Seja bem-vindo ao Ismart Online. Aproveite de nossa plataforma.</p>
+                          <p class="btnReadMore">
+                              <a href="#" class="btn btn-primary">Ler mais</a>
+                          </p>
+                      </li>
+                      <li role="separator" class="divider"></li>
+                      <li>
+                          <h4>Título da notificação</h4>
+                          <p>Seja bem-vindo ao Ismart Online. Aproveite de nossa plataforma.</p>
+                          <p class="btnReadMore">
+                              <a href="#" class="btn btn-primary">Ler mais</a>
+                          </p>
+                      </li>
+                    </ul>
+                </div>
+                
             	<a class="navbar-brand header-line topnav"  href="#">|</a>
             	<a class="navbar-brand header-line topnav" href="<c:url value='/logout'/>" >Sair</a>
             </sec:authorize>

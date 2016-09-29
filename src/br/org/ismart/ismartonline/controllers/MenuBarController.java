@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MenuBarController {
 
+        public MenuBarController() {
+            
+        }
+    
 	@RequestMapping("/home")
 	public String home(){
 		return "index";

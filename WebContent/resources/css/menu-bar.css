@@ -10,3 +10,49 @@
 
   line-height: 50px;
 }
+
+.notification-bubble {
+    background: #00BDF2;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 9px;
+}
+
+.btnNotification {
+    display: inline-block;
+}
+
+.btnNotification button, .btnNotification button:hover, .btnNotification.open button, .btnNotification button:active {
+    background: none !important;
+    border: none !important;
+    font-weight: bold;
+    margin-top: 9px;
+    color: #5e5e5e;
+}
+
+.btnNotification .dropdown-menu {
+    width: 400px;
+}
+@media (max-width: 480px) {
+    width: 100%;
+}
+
+.btnNotification .dropdown-menu li {
+    padding: 5px 15px;
+}
+.btnNotification .dropdown-menu li.divider {
+    padding: 0;
+}
+
+.btnNotification .dropdown-menu h4 {
+    font-size: 1em;
+}
+.btnNotification .dropdown-menu p {
+    font-weight: normal;
+    line-height: 1;
+    text-align: justify;
+}
+
+.btnNotification p.btnReadMore {
+    text-align: right;
+}
