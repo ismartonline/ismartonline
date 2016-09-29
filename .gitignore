@@ -4,6 +4,9 @@ build/
 .settings
 .settings/
 
+context.xml
+nb-configuration.xml
+
 target/
 
 # Elastic Beanstalk Files
