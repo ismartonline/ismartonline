@@ -25,7 +25,7 @@ import br.org.ismart.ismartonline.tools.models.AwsFileMiniModel;
 @Controller
 @Transactional
 @RequestMapping("vQtDNoCxpCa8QIAZPWeIMt4hPuLwZ8a/")
-public class PanicController {
+public class PanicController extends BaseController {
 
 	@Autowired
 	private UserDAO dao;

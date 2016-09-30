@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
@@ -32,25 +33,34 @@
                 <div class="navbar-brand header-line topnav dropdown btnNotification">
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         Mensagens
-                        <span class="notification-bubble">2</span>
+                        <span class="notification-bubble">${fn:length(notifications)}</span>
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <li>
-                          <h4>Título da notificação</h4>
-                          <p>Seja bem-vindo ao Ismart Online. Aproveite de nossa plataforma.</p>
-                          <p class="btnReadMore">
-                              <a href="#" class="btn btn-primary">Ler mais</a>
-                          </p>
-                      </li>
-                      <li role="separator" class="divider"></li>
-                      <li>
-                          <h4>Título da notificação</h4>
-                          <p>Seja bem-vindo ao Ismart Online. Aproveite de nossa plataforma.</p>
-                          <p class="btnReadMore">
-                              <a href="#" class="btn btn-primary">Ler mais</a>
-                          </p>
-                      </li>
+                    <c:if test="${fn:length(notifications) == 0}">
+                        <li>
+                            <h4>Nenhuma novidade</h4>
+                            <p>Você não possui mensagens novas.</p>
+                        </li>
+                    </c:if>
+                    <c:forEach items="${notifications}" var="notification" varStatus="status">
+                        <li>
+                            <h4>${notification.title}</h4>
+                            <p>${notification.brief}</p>
+                            <p class="btnReadMore">
+                                <a href="#">Ler mais</a>
+                            </p>
+                        </li>
+                        <c:if test="${status.index < (fn:length(notifications)-1)}">
+                            <li role="separator" class="divider"></li>                       
+                        </c:if>
+                    </c:forEach>
+                    <li role="separator" class="divider"></li>                       
+                    <li>
+                        <p>
+                            <a href="#">Visualizar todas mensagens</a>
+                        </p>
+                    </li>
                     </ul>
                 </div>
                 

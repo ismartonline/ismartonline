@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.org.ismart.ismartonline.models.User;
 
 @Controller
-public class UserController {
+public class UserController extends BaseController {
 	
 
 	@RequestMapping("/cadastro")

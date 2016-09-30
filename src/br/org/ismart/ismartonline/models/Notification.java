@@ -6,10 +6,14 @@
 package br.org.ismart.ismartonline.models;
 
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Notification {
@@ -26,6 +30,9 @@ public class Notification {
     private String[] units;
     private String[] years;
     private Date date;
+    
+    @OneToMany(mappedBy = "notification", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<NotificationUser> notificationsUser;
 
     public Notification() {
     }
@@ -94,6 +101,14 @@ public class Notification {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public List<NotificationUser> getNotificationsUser() {
+        return notificationsUser;
+    }
+
+    public void setNotificationsUser(List<NotificationUser> notificationsUser) {
+        this.notificationsUser = notificationsUser;
     }
     
     

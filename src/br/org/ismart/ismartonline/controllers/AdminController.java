@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Controller
 @RequestMapping("/admin")
 @Transactional
-public class AdminController {
+public class AdminController extends BaseController {
 
 	@Autowired
 	private MissionDAO missionDao;
