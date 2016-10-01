@@ -13,7 +13,10 @@ import br.org.ismart.ismartonline.daos.MissionDAO;
 import br.org.ismart.ismartonline.daos.NotificationDAO;
 import br.org.ismart.ismartonline.models.Mission;
 import br.org.ismart.ismartonline.models.Notification;
+import br.org.ismart.ismartonline.models.NotificationUser;
 import br.org.ismart.ismartonline.models.StudentMission;
+import br.org.ismart.ismartonline.models.User;
+import java.util.ArrayList;
 import java.util.Date;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -83,17 +86,67 @@ public class AdminController extends BaseController {
            
             Notification notificationForm = new Notification();    
             model.addObject("notificationForm", notificationForm);
+            model.addObject("unitsList", getUnitsList());
             return model;
         }
         
-        @RequestMapping("/notificacao/cadastro/submit")
-        public ModelAndView notificacaoCadastroSubmit(@ModelAttribute("notificationForm") Notification notification){
-            
-            notification.setDate(new Date());
-            notificationDao.save(notification);
-            
-           
-            return new ModelAndView("redirect: /notificacao/cadastro");
+        private List<String> getUnitsList() {            
+            List<String> unitsList = new ArrayList<String>();
+            unitsList.add("Cotia");
+            unitsList.add("RJ");
+            unitsList.add("SJC");
+            unitsList.add("Sorocaba");
+            unitsList.add("SP");
+            return unitsList;
         }
         
+        @RequestMapping("/notificacao/cadastro/submit")
+        public String notificacaoCadastroSubmit(@ModelAttribute("notificationForm") Notification notification){
+            
+            notification.setDate(new Date());
+//            NotificationThread thread = new NotificationThread(notification, notificationDao);
+//            thread.start();
+            notificationDao.save(notification);
+            List<User> users = notificationDao.getUsersToGenerateNotification(notification);
+            for(User u : users) {
+                System.out.println("Usuário: " + u.getLogin());
+                NotificationUser nu = new NotificationUser();
+                nu.setUser(u);
+                nu.setNotification(notification);
+                nu.setVisualized(false);
+
+                notificationDao.saveNotificationUser(nu);
+            }
+            
+           
+            return "redirect:/admin/notificacao";
+        }
+        
+}
+
+class NotificationThread extends Thread {
+    
+    private Notification notification;
+    private NotificationDAO dao;
+    
+    public NotificationThread(Notification notification, NotificationDAO dao) {
+        this.notification = notification;
+        this.dao = dao;
+    }
+    
+    public void run(){
+        System.out.println("Rodando: " + new Date().toString());
+        dao.save(notification);
+        List<User> users = this.dao.getUsersToGenerateNotification(notification);
+        for(User u : users) {
+            System.out.println("Usuário: " + u.getLogin());
+            NotificationUser nu = new NotificationUser();
+            nu.setUser(u);
+            nu.setNotification(notification);
+            nu.setVisualized(false);
+            
+            dao.saveNotificationUser(nu);
+        }
+        System.out.println("Finalizando: " + new Date().toString());
+    }
 }

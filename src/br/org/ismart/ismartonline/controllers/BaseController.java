@@ -19,9 +19,9 @@ public class BaseController {
     
 	
 	@Autowired
-	private NotificationDAO notificationDAO;
+	protected NotificationDAO notificationDAO;
         
-        @ModelAttribute("notifications")
+        @ModelAttribute("unreadUserNotifications")
         public List<Notification> getUnreadNotifications(HttpSession session) {
             User user = this.GetUserFromSession(session);
             List<Notification> list = ((user != null) ? notificationDAO.findUnreadByUser(user) : new ArrayList());

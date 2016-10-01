@@ -5,6 +5,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <html lang="pt-BR">
 
@@ -53,9 +54,10 @@
                                         <table class="table table-notifications">
                                             <thead>
                                                 <tr>
-                                                    <th>Data</th>
-                                                    <th>Título</th>
-                                                    <th>Resumo</th>
+                                                    <th width="20%">Data</th>
+                                                    <th width="30%">Título</th>
+                                                    <th>Unidade(s)</th>
+                                                    <th>Ano(s)</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -66,9 +68,32 @@
                                                 </c:if>
                                                 <c:forEach items="${notifications}" var="notification">
                                                     <tr>
-                                                        <td>${notification.date}</td>
+                                                        <td>${notification.formattedDate}</td>
                                                         <td>${notification.title}</td>
-                                                        <td>${notification.brief}</td>
+                                                        <td>
+                                                            <c:forEach items="${notification.units}" var="unit" varStatus="status">
+                                                                <c:choose>
+                                                                    <c:when test="${status.index < (fn:length(notification.units)-1)}">
+                                                                        ${unit},
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        ${unit}
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </c:forEach>
+                                                        </td>
+                                                        <td>
+                                                            <c:forEach items="${notification.years}" var="year" varStatus="status">
+                                                                <c:choose>
+                                                                    <c:when test="${status.index < (fn:length(notification.years)-1)}">
+                                                                        ${year}º ano,
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        ${year}º ano
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </c:forEach>
+                                                        </td>
                                                     </tr>
                                                 </c:forEach>
                                             </tbody>

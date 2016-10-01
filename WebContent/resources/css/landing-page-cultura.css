@@ -179,3 +179,16 @@ p.copyright {
     text-align: left;
     padding: 10px;
 }
+
+.checkboxes span input {    
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.checkboxes span label {
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-top: -6px;
+    margin-right: 20px;
+}

@@ -67,6 +67,32 @@
                                                 <form:textarea path="content" class="form-control" rows="20" />
                                                 <form:errors path="content" />
                                             </div>
+                                            
+                                            <div class="form-group checkboxes">
+                                                <label for="units">Unidade(s)</label>
+                                                <div>
+                                                    <form:checkboxes path="units" class="form-control" items="${unitsList}" />
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group checkboxes">
+                                                <label for="years">Ano(s)</label>
+                                                <div>
+                                                    <span>
+                                                        <form:checkbox value="8" class="form-control" path="years" id="years8" />
+                                                        <label for="years8">8º ano</label>
+                                                    </span>
+                                                    <span>
+                                                        <form:checkbox value="9" class="form-control" path="years" id="years9" />
+                                                        <label for="years9">9º ano</label>
+                                                    </span>
+                                                    <span>
+                                                        <form:checkbox value="1" class="form-control" path="years" id="years1" />
+                                                        <label for="years1">1º ano</label>
+                                                    </span>
+                                                </div>
+                                                <form:errors path="content" />
+                                            </div>
 
                                             <label for="submitButton"> <span
                                                     class="btn btn-primary btn-block">Salvar</span></label>

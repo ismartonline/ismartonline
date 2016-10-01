@@ -6,6 +6,7 @@ build/
 
 context.xml
 nb-configuration.xml
+*.class
 
 target/
 

@@ -5,20 +5,24 @@
  */
 package br.org.ismart.ismartonline.models;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Notification {
-    
-    
+
     @Id
     @GeneratedValue
     private Long id;
@@ -27,8 +31,14 @@ public class Notification {
     private String brief;
     @Column(columnDefinition="TEXT")
     private String content;
-    private String[] units;
-    private String[] years;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name="NotificationUnits", joinColumns=@JoinColumn(name="notification_id"))
+    @Column(name="units")
+    private List<String> units = new ArrayList();
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name="NotificationYears", joinColumns=@JoinColumn(name="notification_id"))
+    @Column(name="years")
+    private List<String> years = new ArrayList();
     private Date date;
     
     @OneToMany(mappedBy = "notification", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -37,7 +47,7 @@ public class Notification {
     public Notification() {
     }
 
-    public Notification(Long id, String title, String brief, String content, String[] units, String[] years, Date date) {
+    public Notification(Long id, String title, String brief, String content, List<String> units, List<String> years, Date date) {
         this.id = id;
         this.title = title;
         this.brief = brief;
@@ -79,19 +89,19 @@ public class Notification {
         this.content = content;
     }
 
-    public String[] getUnits() {
+    public List<String> getUnits() {
         return units;
     }
 
-    public void setUnits(String[] units) {
+    public void setUnits(List<String> units) {
         this.units = units;
     }
 
-    public String[] getYears() {
+    public List<String> getYears() {
         return years;
     }
 
-    public void setYears(String[] years) {
+    public void setYears(List<String> years) {
         this.years = years;
     }
 
@@ -111,6 +121,9 @@ public class Notification {
         this.notificationsUser = notificationsUser;
     }
     
-    
-    
+    public String getFormattedDate() {
+        if(this.getDate() != null)
+            return new SimpleDateFormat("dd/MM/YYYY HH:mm").format(this.getDate());
+        return this.getDate().toString();
+    }
 }
