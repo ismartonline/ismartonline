@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,6 +29,16 @@ public class NotificationController extends BaseController {
             model.addObject("notifications", notifications);
             return model;
 	}
-
-    
+       
+        @RequestMapping("/mensagens/ver/{id}")
+	public ModelAndView detailNotification(HttpSession session, @PathVariable("id") long id) {
+            System.out.println("okokokoko"+id);
+            ModelAndView model = new ModelAndView("notification/detail");
+            
+            User user = this.GetUserFromSession(session);
+//            Notification notification = ((id != null) ? notificationDAO.findById(id) : new Notification);
+            Notification notification = notificationDAO.findById(id);
+            model.addObject("notification", notification);
+            return model;
+	}
 }

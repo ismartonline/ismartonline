@@ -49,7 +49,7 @@
                                 <h4>${notification.title}</h4>
                                 <p>${notification.brief}</p>
                                 <p class="btnReadMore">
-                                    <a href="#">Ler mais</a>
+                                    <a href="<c:url value='/mensagens/ver/${notification.id}'/>">Ler mais</a>
                                 </p>
                             </li>
                             <c:if test="${status.index < (fn:length(unreadUserNotifications)-1) && status.index < 2}">
@@ -60,7 +60,7 @@
                     <li role="separator" class="divider"></li>                       
                     <li>
                         <p>
-                            <a href="#">Visualizar todas mensagens</a>
+                            <a href="<c:url value='/mensagens'/>">Visualizar todas mensagens</a>
                         </p>
                     </li>
                     </ul>

@@ -1,3 +1,9 @@
+<%-- 
+    Document   : notification-details
+    Created on : 07/10/2016, 11:15:49
+    Author     : RodrigoGuimaraes
+--%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,20 +29,20 @@
 		</div>
 		
 		<div class="title">
-			<h1>Mensagens</h1>
+			<h1>${notification.title}</h1>
 		</div>
 
 
 		<div class="row">
                     <div class="container">
-                        <c:forEach items="${notifications}" var="notification">
-                            <div class="list-group">
-                                <a href="<c:url value='/mensagens/ver/${notification.id}'/>" class="list-group-item">
-                                    <h4 class="list-group-item-heading">${notification.title}</h4>
-                                    <p class="list-group-item-text">${notification.brief}</p>
-                                </a>
-                            </div>
-                        </c:forEach>
+                        <div class="list-group">
+                            <a class="list-group-item">
+                                <h3 class="list-group-item-heading">${notification.title}</h3>
+                                <p class="list-group-item-text">${notification.brief}</p>
+                                <p class="list-group-item-text">${notification.content}</p>
+                                <p class="list-group-item-text">${notification.date}</p>                 
+                            </a>
+                        </div>
                     </div>
 		</div>
 		<!-- fim da linha principal -->
@@ -53,3 +59,4 @@
 </body>
 
 </html>
+

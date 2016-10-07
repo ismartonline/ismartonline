@@ -23,6 +23,10 @@
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
 
+<link
+	href="${pageContext.request.contextPath}/resources/css/menu-bar.css"
+	rel="stylesheet">
+
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <link
 	href="${pageContext.request.contextPath}/resources/assets/css/ie10-viewport-bug-workaround.css"
