@@ -59,7 +59,7 @@
                     </c:forEach>
                     <li role="separator" class="divider"></li>                       
                     <li>
-                        <p>
+                        <p style="text-align: center;">
                             <a href="<c:url value='/mensagens'/>">Visualizar todas mensagens</a>
                         </p>
                     </li>

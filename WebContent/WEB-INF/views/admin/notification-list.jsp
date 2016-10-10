@@ -58,6 +58,7 @@
                                                     <th width="30%">Título</th>
                                                     <th>Unidade(s)</th>
                                                     <th>Ano(s)</th>
+                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -93,6 +94,9 @@
                                                                     </c:otherwise>
                                                                 </c:choose>
                                                             </c:forEach>
+                                                        </td>
+                                                        <td>
+                                                            <a href="<c:url value='/mensagens/ver/${notification.id}'/>">Visualizar</a>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>

@@ -29,19 +29,20 @@
 		</div>
 		
 		<div class="title">
-			<h1>${notification.title}</h1>
+			<h3>&nbsp;</h3>
 		</div>
-
 
 		<div class="row">
                     <div class="container">
-                        <div class="list-group">
-                            <a class="list-group-item">
-                                <h3 class="list-group-item-heading">${notification.title}</h3>
-                                <p class="list-group-item-text">${notification.brief}</p>
-                                <p class="list-group-item-text">${notification.content}</p>
-                                <p class="list-group-item-text">${notification.date}</p>                 
-                            </a>
+                         <div class="thumbnail">
+                            <div class="caption">
+                                <div class="row">    
+                                    <h3 class="col-xs-4 col-xs-offset-4">${notification.title}</h3>
+                                    <h4 class="col-xs-4 text-right" style="font-size:15px; padding-right: 20px; font-weight: normal; color: #888;">${notification.formattedDate}</h4>
+                                    <p class="col-xs-12">${notification.brief}</p>
+                                    <div class="col-xs-10 col-xs-offset-1" style="font-weight: normal;">${notification.content}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 		</div>

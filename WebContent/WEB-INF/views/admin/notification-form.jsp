@@ -10,6 +10,15 @@
 
 <c:import url="../include/head-cultura.jsp" />
 
+<script src="${pageContext.request.contextPath}/resources/js/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: '#contentArea',
+        plugins: 'image, preview, imagetools, anchor',
+        language: 'pt_BR'
+    });
+  </script>
+
 <body>
 
 	<c:import url="../include/navigation.jsp" />
@@ -64,7 +73,7 @@
                                             
                                             <div class="form-group">
                                                 <label for="content">Conteúdo</label>
-                                                <form:textarea path="content" class="form-control" rows="20" />
+                                                <form:textarea path="content" class="form-control" id="contentArea" rows="20" />
                                                 <form:errors path="content" />
                                             </div>
                                             

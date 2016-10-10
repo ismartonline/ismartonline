@@ -33,7 +33,7 @@
                             <div class="list-group">
                                 <a href="<c:url value='/mensagens/ver/${notification.id}'/>" class="list-group-item">
                                     <h4 class="list-group-item-heading">${notification.title}</h4>
-                                    <p class="list-group-item-text">${notification.brief}</p>
+                                    <p class="list-group-item-text" style="font-weight: normal;">${notification.brief}</p>
                                 </a>
                             </div>
                         </c:forEach>
