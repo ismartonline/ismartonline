@@ -116,6 +116,12 @@ public class Notification {
     public List<NotificationUser> getNotificationsUser() {
         return notificationsUser;
     }
+    
+    public void addNotificationUser(NotificationUser nu) {
+        if (this.notificationsUser == null) 
+            this.notificationsUser = new ArrayList<NotificationUser>();
+        this.notificationsUser.add(nu);
+    }
 
     public void setNotificationsUser(List<NotificationUser> notificationsUser) {
         this.notificationsUser = notificationsUser;

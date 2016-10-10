@@ -16,6 +16,7 @@ import br.org.ismart.ismartonline.models.Notification;
 import br.org.ismart.ismartonline.models.NotificationUser;
 import br.org.ismart.ismartonline.models.StudentMission;
 import br.org.ismart.ismartonline.models.User;
+import br.org.ismart.ismartonline.services.SESMail;
 import java.util.ArrayList;
 import java.util.Date;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -104,19 +105,22 @@ public class AdminController extends BaseController {
         public String notificacaoCadastroSubmit(@ModelAttribute("notificationForm") Notification notification){
             
             notification.setDate(new Date());
-//            NotificationThread thread = new NotificationThread(notification, notificationDao);
-//            thread.start();
-            notificationDao.save(notification);
             List<User> users = notificationDao.getUsersToGenerateNotification(notification);
             for(User u : users) {
-                System.out.println("Usuário: " + u.getLogin());
+                // System.out.println("Usuário: " + u.getLogin());
                 NotificationUser nu = new NotificationUser();
                 nu.setUser(u);
                 nu.setNotification(notification);
                 nu.setVisualized(false);
-
-                notificationDao.saveNotificationUser(nu);
+                notification.addNotificationUser(nu);
             }
+            System.out.println(notification.getTitle());
+            notificationDao.save(notification);
+            
+            NotificationMail nm = new NotificationMail(notification);
+            Thread t = new Thread(nm);
+            t.start();
+            
             
            
             return "redirect:/admin/notificacao";
@@ -124,29 +128,29 @@ public class AdminController extends BaseController {
         
 }
 
-class NotificationThread extends Thread {
+class NotificationMail implements Runnable {
     
     private Notification notification;
-    private NotificationDAO dao;
-    
-    public NotificationThread(Notification notification, NotificationDAO dao) {
+
+    public NotificationMail(Notification notification) {
         this.notification = notification;
-        this.dao = dao;
     }
     
-    public void run(){
-        System.out.println("Rodando: " + new Date().toString());
-        dao.save(notification);
-        List<User> users = this.dao.getUsersToGenerateNotification(notification);
-        for(User u : users) {
-            System.out.println("Usuário: " + u.getLogin());
-            NotificationUser nu = new NotificationUser();
-            nu.setUser(u);
-            nu.setNotification(notification);
-            nu.setVisualized(false);
-            
-            dao.saveNotificationUser(nu);
+    @Override
+    public void run() {
+        System.out.println("Iniciando o envio de emails para " + notification.getNotificationsUser().size() + " alunos.");
+        for (NotificationUser nu : notification.getNotificationsUser()) {
+            try{
+                System.out.println("Enviar email para " + nu.getUser().getLogin());
+                SESMail ses = new SESMail(notification.getTitle(), notification.getContent(), nu.getUser().getLogin());
+                ses.send();
+            } catch(Exception e) {
+                System.out.println("ERRO: " + e.getMessage());
+            }
         }
-        System.out.println("Finalizando: " + new Date().toString());
+        System.out.println("Envio de emails finalizado.");
+        
     }
+    
+    
 }

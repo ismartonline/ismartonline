@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import br.org.ismart.ismartonline.models.Notification;
 import br.org.ismart.ismartonline.models.NotificationUser;
 import br.org.ismart.ismartonline.models.User;
+import java.util.ArrayList;
 import javax.persistence.Query;
 
 @Repository
@@ -50,11 +51,20 @@ public class NotificationDAO {
 	}
 
     public List<User> getUsersToGenerateNotification(Notification notification) {
-        Query q = entityManager.createQuery("select u from User u where u.ano in (:ano) and u.unidade in (:unidade)");
-        q.setParameter("ano", notification.getYears());
-        q.setParameter("unidade", notification.getUnits());
-        
-        return q.getResultList();
+        if(
+            (notification.getYears() == null || notification.getYears().isEmpty()) &&
+            (notification.getYears() == null || notification.getYears().isEmpty()) 
+        ){
+            return new ArrayList<User>();
+        }
+        else
+        {
+            Query q = entityManager.createQuery("select u from User u where u.ano in (:ano) and u.unidade in (:unidade)");
+            q.setParameter("ano", notification.getYears());
+            q.setParameter("unidade", notification.getUnits());
+
+            return q.getResultList();
+        }
     }
 
     public void saveNotificationUser(NotificationUser nu) {
