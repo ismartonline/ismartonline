@@ -128,7 +128,7 @@ class NotificationThread extends Thread {
     
     private Notification notification;
     private NotificationDAO dao;
-    
+
     public NotificationThread(Notification notification, NotificationDAO dao) {
         this.notification = notification;
         this.dao = dao;
