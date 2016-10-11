@@ -12,16 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@Transactional
 public class NotificationController extends BaseController {
 
 	@RequestMapping("/mensagens")
 	public ModelAndView listaNotifications(HttpSession session) {
-            System.out.println("okokokoko");
             ModelAndView model = new ModelAndView("notification/list");
             
             User user = this.GetUserFromSession(session);
@@ -32,12 +33,10 @@ public class NotificationController extends BaseController {
        
         @RequestMapping("/mensagens/ver/{id}")
 	public ModelAndView detailNotification(HttpSession session, @PathVariable("id") long id) {
-            System.out.println("okokokoko"+id);
             ModelAndView model = new ModelAndView("notification/detail");
             
             User user = this.GetUserFromSession(session);
-//            Notification notification = ((id != null) ? notificationDAO.findById(id) : new Notification);
-            Notification notification = notificationDAO.findById(id);
+            Notification notification = notificationDAO.seeNotification(id, user);
             model.addObject("notification", notification);
             return model;
 	}

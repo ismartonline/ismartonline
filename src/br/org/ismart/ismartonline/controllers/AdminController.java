@@ -114,7 +114,6 @@ public class AdminController extends BaseController {
                 nu.setVisualized(false);
                 notification.addNotificationUser(nu);
             }
-            System.out.println(notification.getTitle());
             notificationDao.save(notification);
             
             NotificationMail nm = new NotificationMail(notification);
