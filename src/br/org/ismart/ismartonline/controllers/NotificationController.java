@@ -40,21 +40,5 @@ public class NotificationController extends BaseController {
             Notification notification = notificationDAO.findById(id);
             model.addObject("notification", notification);
             return model;
-	}
-        
-        
-        //Provisorio Mail Template URL
-        
-        @RequestMapping("/mail/{id}")
-	public ModelAndView mailTemplate(HttpSession session, @PathVariable("id") long id) {
-            System.out.println("okokokoko"+id);
-            ModelAndView model = new ModelAndView("template/mail-template");
-            
-            User user = this.GetUserFromSession(session);
-//            Notification notification = ((id != null) ? notificationDAO.findById(id) : new Notification);
-            Notification notification = notificationDAO.findById(id);
-            model.addObject("notification", notification);
-            return model;
-	}
-        
+	}        
 }

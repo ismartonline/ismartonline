@@ -142,7 +142,46 @@ class NotificationMail implements Runnable {
         for (NotificationUser nu : notification.getNotificationsUser()) {
             try{
                 System.out.println("Enviar email para " + nu.getUser().getLogin());
-                SESMail ses = new SESMail(notification.getTitle(), notification.getContent(), nu.getUser().getLogin());
+//                SESMail ses = new SESMail(notification.getTitle(), notification.getContent(), nu.getUser().getLogin());
+                
+                String mail = "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"100%\" width=\"100%\" id=\"bodyTable\" style=\"font-family: sans-serif;\"><tr>"+
+"<tr>"+
+"<td align=\"center\" valign=\"top\">"+
+"<table width=\"600\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n" +
+"                <tr style=\"align: center;\">\n" +
+"                    <td style=\"text-align: center;\">\n" +
+"                       <a href=\"http://www.ismartonline.com.br\">\n" +
+"                           <img src=\"http://www.ismartonline.com.br/resources/img/ismart-online-logo-2.jpg\"><br><br><br>\n" +
+"                       </a>\n" +
+"                    </td>"+                        
+"                </tr>\n" +
+"                <tr style=\"text-align: center;\">\n" +
+"                    <td>"+                        
+"                       <h1>"+notification.getTitle()+"</h1><br><br>\n" +
+"                    </td>"+                        
+"                </tr>\n" +
+"                <tr>\n" +
+"                    <td style=\"text-align: left;\">\n" +                       
+"                           "+notification.getContent()+""+
+"                    <br><br><hr><br></td>"+                         
+"                </tr>\n" +
+"                <tr>\n" +
+"                    <td style=\"text-align: center; background-color: #FFA000; color: #fff; \">\n" +                       
+"                           <br>Qualquer dúvida, entre em contato. <br>" +
+"<br>" +
+"Saudações,<br>" +
+"Equipe Ismart Online<br>"+
+"                    </td>"+                         
+"                </tr>\n" +                        
+"        </table>"+
+"</td>\n" +
+"            </tr>\n" +
+"        </table>";         
+                
+
+                SESMail ses = new SESMail(notification.getTitle(), mail, nu.getUser().getLogin());
+                
+                
                 ses.send();
             } catch(Exception e) {
                 System.out.println("ERRO: " + e.getMessage());
