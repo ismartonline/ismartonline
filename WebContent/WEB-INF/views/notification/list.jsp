@@ -5,6 +5,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <html lang="pt-BR">
 
@@ -29,6 +30,14 @@
 
 		<div class="row">
                     <div class="container">
+                    <c:if test="${fn:length(notifications) == 0}">
+                        <div class="list-group notification-list-item">
+                            <a class="list-group-item">
+                            <h3 class="list-group-item-heading">Nenhuma novidade</h3>
+                            <p class="list-group-item-text" style="font-weight: normal; font-size: 0.9em;">Você não possui mensagens novas.</p>
+                            </a>
+                        </div>
+                    </c:if>
                         <c:forEach items="${notifications}" var="notification">
                             <div class="list-group notification-list-item">
                                 <a href="<c:url value='/mensagens/ver/${notification.id}'/>" class="list-group-item">

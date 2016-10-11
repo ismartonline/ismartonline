@@ -40,7 +40,7 @@
                                     <h3 class="col-xs-4 col-xs-offset-4">${notification.title}</h3>
                                     <h4 class="col-xs-4 text-right" style="font-size:15px; padding-right: 20px; font-weight: normal; color: #888;"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> ${notification.formattedDate}</h4>
                                     <p class="col-xs-12">${notification.brief}</p>
-                                    <div class="col-xs-10 col-xs-offset-1" style="font-weight: normal;">${notification.content}</div>
+                                    <div class="col-xs-10 col-xs-offset-1" style="font-weight: normal; text-align: left;">${notification.content}</div>
                                 </div>
                             </div>
                             <div class="btn-ver-mensagens-detail">
