@@ -30,10 +30,14 @@
 		<div class="row">
                     <div class="container">
                         <c:forEach items="${notifications}" var="notification">
-                            <div class="list-group">
+                            <div class="list-group notification-list-item">
                                 <a href="<c:url value='/mensagens/ver/${notification.id}'/>" class="list-group-item">
-                                    <h4 class="list-group-item-heading">${notification.title}</h4>
-                                    <p class="list-group-item-text" style="font-weight: normal;">${notification.brief}</p>
+                                    <h3 class="list-group-item-heading">${notification.title}</h3>
+                                    <p class="list-group-item-text" style="font-weight: normal; font-size: 0.9em;"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> ${notification.formattedDate}</p>
+                                    <br/>
+                                    <div class="list-group-item-text" style="font-weight: normal; font-size: 1.2em;">
+                                        <p>${notification.brief}</p>                                        
+                                    </div>
                                 </a>
                             </div>
                         </c:forEach>

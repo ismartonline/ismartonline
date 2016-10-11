@@ -192,3 +192,13 @@ p.copyright {
     margin-top: -6px;
     margin-right: 20px;
 }
+
+.btn-ver-mensagens-detail {
+    text-align: left;
+    padding: 10px;
+}
+
+.notification-list-item {
+    text-align: left;
+}
+
