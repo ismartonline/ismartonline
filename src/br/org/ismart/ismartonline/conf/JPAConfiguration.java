@@ -76,7 +76,7 @@ public class JPAConfiguration
    {
       Properties properties = new Properties();
       properties.setProperty("hibernate.hbm2ddl.auto", "update");
-      properties.setProperty("hibernate.show_sql", "true");
+      properties.setProperty("hibernate.show_sql", "false");
       return properties;
    }
 }
