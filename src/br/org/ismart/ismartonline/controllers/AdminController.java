@@ -125,6 +125,15 @@ public class AdminController extends BaseController {
             return "redirect:/admin/notificacao";
         }
         
+        @RequestMapping("/notificacao/ver/{id}")
+	public ModelAndView detailNotification(@PathVariable("id") long id) {
+            ModelAndView model = new ModelAndView("admin/notification-detail");
+            
+            Notification notification = notificationDAO.findById(id);
+            model.addObject("notification", notification);
+            return model;
+	}        
+        
 }
 
 class NotificationMail implements Runnable {

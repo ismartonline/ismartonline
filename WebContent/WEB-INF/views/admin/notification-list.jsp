@@ -96,7 +96,7 @@
                                                             </c:forEach>
                                                         </td>
                                                         <td>
-                                                            <a href="<c:url value='/mensagens/ver/${notification.id}'/>">Visualizar</a>
+                                                            <a href="<c:url value='/admin/notificacao/ver/${notification.id}'/>">Visualizar</a>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>
