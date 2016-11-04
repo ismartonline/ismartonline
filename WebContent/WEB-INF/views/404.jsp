@@ -23,6 +23,7 @@
 	                <div class="col-lg-12">
 	                    <div class="intro-message">
 	                        
+                                
 	                    </div>
 	                </div>
 	            </div>

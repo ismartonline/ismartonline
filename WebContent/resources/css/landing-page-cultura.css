@@ -168,3 +168,37 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
+
+.table-notifications tr, .notification_form {
+    color: black;
+}
+
+.notification_form 
+{
+    background: white;
+    text-align: left;
+    padding: 10px;
+}
+
+.checkboxes span input {    
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.checkboxes span label {
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-top: -6px;
+    margin-right: 20px;
+}
+
+.btn-ver-mensagens-detail {
+    text-align: left;
+    padding: 10px;
+}
+
+.notification-list-item {
+    text-align: left;
+}
+

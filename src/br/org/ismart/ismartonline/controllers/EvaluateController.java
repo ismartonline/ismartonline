@@ -14,7 +14,7 @@ import br.org.ismart.ismartonline.models.StudentMission;
 
 @Controller
 @Transactional
-public class EvaluateController {
+public class EvaluateController extends BaseController {
 
 	@Autowired
 	private MissionDAO missionDao;

@@ -17,7 +17,7 @@ import br.org.ismart.ismartonline.services.ImaginieLogin;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-public class ModuloController {
+public class ModuloController extends BaseController {
     
 	@Autowired
 	private GeekieLab geekieLab;

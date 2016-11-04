@@ -4,6 +4,12 @@ build/
 .settings
 .settings/
 
+context.xml
+nb-configuration.xml
+*.class
+persistence.xml
+client_secret.json
+
 target/
 
 # Elastic Beanstalk Files

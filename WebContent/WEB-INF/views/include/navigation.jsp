@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
@@ -27,7 +28,44 @@
             		<a class="navbar-brand header-line topnav"  href="#">|</a>
 	            	<a class="navbar-brand header-line topnav" href="<c:url value='/admin'/>" >Painel de Controle</a>
             	</sec:authorize>
-            	
+                        
+                <a class="navbar-brand header-line topnav"  href="#">|</a>
+                <div class="navbar-brand header-line topnav dropdown btnNotification">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Mensagens
+                        <span class="notification-bubble">${fn:length(unreadUserNotifications)}</span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="unreadUserNotifications">
+                    <c:if test="${fn:length(unreadUserNotifications) == 0}">
+                        <li>
+                            <h4>Nenhuma novidade</h4>
+                            <p>Você não possui mensagens novas.</p>
+                        </li>
+                    </c:if>
+                    <c:forEach items="${unreadUserNotifications}" var="notification" varStatus="status">
+                        <c:if test="${status.index < 3}">
+                            <li>
+                                <h4>${notification.title}</h4>
+                                <p>${notification.brief}</p>
+                                <p class="btnReadMore">
+                                    <a href="<c:url value='/mensagens/ver/${notification.id}'/>">Ler mais</a>
+                                </p>
+                            </li>
+                            <c:if test="${status.index < (fn:length(unreadUserNotifications)-1) && status.index < 2}">
+                                <li role="separator" class="divider"></li>                       
+                            </c:if>
+                        </c:if>
+                    </c:forEach>
+                    <li role="separator" class="divider"></li>                       
+                    <li>
+                        <p style="text-align: center;">
+                            <a href="<c:url value='/mensagens'/>">Visualizar todas mensagens</a>
+                        </p>
+                    </li>
+                    </ul>
+                </div>
+                
             	<a class="navbar-brand header-line topnav"  href="#">|</a>
             	<a class="navbar-brand header-line topnav" href="<c:url value='/logout'/>" >Sair</a>
             </sec:authorize>

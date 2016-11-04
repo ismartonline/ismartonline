@@ -22,7 +22,7 @@ import br.org.ismart.ismartonline.tools.FileManager;
 
 @Transactional
 @Controller
-public class MissionController {
+public class MissionController extends BaseController {
 	
 	private static final String AWS_S3_BASE_URL = "https://s3-sa-east-1.amazonaws.com/elasticbeanstalk-sa-east-1-174765381476/";
 	

@@ -1,15 +1,21 @@
 package br.org.ismart.ismartonline.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class MenuBarController {
+public class MenuBarController extends BaseController {
 
+        
 	@RequestMapping("/home")
 	public String home(){
 		return "index";
 	}
+        
+	@RequestMapping("/404")
+	public String error404() {
+            return "404";
+        }
 	
 //	@RequestMapping("/sobre")
 //	public String about(){
