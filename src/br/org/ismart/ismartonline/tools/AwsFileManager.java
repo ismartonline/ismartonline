@@ -24,6 +24,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
 
 import br.org.ismart.ismartonline.tools.models.AwsFileMiniModel;
+import com.amazonaws.auth.SystemPropertiesCredentialsProvider;
 
 @Component
 public class AwsFileManager implements FileManager {
@@ -77,7 +78,7 @@ public class AwsFileManager implements FileManager {
 
 		String webPath = baseFolder + "/" + fileName;
 
-		AmazonS3 s3client = new AmazonS3Client(new ProfileCredentialsProvider());
+		AmazonS3 s3client = new AmazonS3Client(new SystemPropertiesCredentialsProvider());
 		try {
 			System.out.println("Uploading a new object to S3 from a file\n");
 			s3client.putObject(new PutObjectRequest(bucketName, webPath, convert(file)));
